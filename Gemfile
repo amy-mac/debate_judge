@@ -7,6 +7,7 @@ gem 'sidekiq', '~> 2.15.0'
 gem 'sinatra'
 gem 'unicorn', '4.7.0'
 gem 'pg'
+gem 'backbone-on-rails'
 
 group :development, :test do
   gem 'pry-rails'
@@ -30,6 +31,9 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'haml-rails'
+  gem 'haml_coffee_assets'
+  gem 'execjs'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
