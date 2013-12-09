@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+tournaments = Tournament.create([
+  { tournament: 'Stanford Invitational', school: 'Stanford', date: '2013-10-12'},
+  { tournament: 'Debaters Anonymous', school: 'Berkeley University', date: '2013-11-14'},
+  { tournament: 'Yale Tournament', school: 'Yale University', date: '2012-02-25'}
+  ])

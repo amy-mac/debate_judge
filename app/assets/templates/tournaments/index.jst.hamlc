@@ -1,0 +1,14 @@
+%h2 Tournaments
+  %small 
+    %a{href: '#'} Add New
+
+%ul
+- for tournament in @tournaments.models
+  %li
+    =tournament.get('tournament')
+
+%form#new_tourney
+  %input#new_tourney_tournament{type: 'text', name: 'tournament', placeholder: 'Tournament Name'}
+  %input#new_tourney_school{type: 'text', name: 'school', placeholder: 'School, optional'}
+  %input#new_tourney_date{type: 'date', name: 'date'}
+  %input{type: 'submit', value: 'Add'}

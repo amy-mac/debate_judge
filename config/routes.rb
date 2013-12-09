@@ -6,5 +6,5 @@ DebateJudge::Application.routes.draw do
   
   resources :users
 
-  root to: 'application#index'
+  root to: 'main#index'
 end
