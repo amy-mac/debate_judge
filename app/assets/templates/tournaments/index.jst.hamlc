@@ -1,14 +1,25 @@
-%h2 Tournaments
-  %small 
-    %a{href: '#'} Add New
+.col-xs-12
+  %h1 Tournaments
+    %small 
+      %a{href: '#', id: 'tourney_add'} Add New
 
-%ul
-- for tournament in @tournaments.models
-  %li
-    =tournament.get('tournament')
+.row
+  .col-sm-12.col-md-8
+    %form#new_tourney.hidden.form-inline{ role: "form" }
+      .form-group
+        %input#new_tourney_tournament.form-control{type: 'text', name: 'tournament', placeholder: 'Tournament Name', required: true}
+      
+      .form-group
+        %input#new_tourney_school.form-control{type: 'text', name: 'school', placeholder: 'School, optional'}
+      
+      .form-group
+        %input#new_tourney_date.form-control{type: 'date', name: 'date', required: true}
+      
+      %input.btn.btn-default{type: 'submit', value: "Add"}
 
-%form#new_tourney
-  %input#new_tourney_tournament{type: 'text', name: 'tournament', placeholder: 'Tournament Name'}
-  %input#new_tourney_school{type: 'text', name: 'school', placeholder: 'School, optional'}
-  %input#new_tourney_date{type: 'date', name: 'date'}
-  %input{type: 'submit', value: 'Add'}
+.row
+  .col-xs-12.col-md-8
+    %ul#tournaments
+
+  .col-xs-12.col-md-4
+    %h2 Recent Stuff

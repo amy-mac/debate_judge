@@ -5,12 +5,11 @@ class DebateJudge.Routers.Tournaments extends Backbone.Router
 
   initialize: ->
     @collection = new DebateJudge.Collections.Tournaments()
-    window.tournaments = @collection
-
+    @collection.fetch()
+  
   index: ->
-    @collection.fetch().done =>
-      view = new DebateJudge.Views.TournamentsIndex(collection: @collection)
-      $('#container').html(view.render().el)
+    view = new DebateJudge.Views.TournamentsIndex(collection: @collection)
+    $('#main').html(view.render().el)
 
   show: (id) ->
     alert "show page"
