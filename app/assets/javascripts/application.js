@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require hamlcoffee
 //= require underscore
+//= require page
 //= require backbone
 //= require debate_judge
 //= require bootstrap

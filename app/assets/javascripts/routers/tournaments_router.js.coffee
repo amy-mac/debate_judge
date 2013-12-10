@@ -2,6 +2,10 @@ class DebateJudge.Routers.Tournaments extends Backbone.Router
   routes:
     '': 'index'
     'tournaments/:id': 'show'
+    'users/:id': 'userShow'
+    'users/new': 'userNew'
+    'users/create': 'create'
+    'users/edit': 'edit'
 
   initialize: ->
     @collection = new DebateJudge.Collections.Tournaments()
@@ -13,3 +17,8 @@ class DebateJudge.Routers.Tournaments extends Backbone.Router
 
   show: (id) ->
     alert "show page"
+
+  userNew: ->
+    alert "Test"
+    view = new DebateJudge.Views.UsersNew()
+    $('#main').html(view.render().el)

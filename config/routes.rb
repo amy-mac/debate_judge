@@ -2,9 +2,11 @@ DebateJudge::Application.routes.draw do
 
   scope "api" do
     resources :tournaments
+    resources :users, except: [:index]
   end
   
-  resources :users
+
+  resources :sessions, only: [:create, :destroy]
 
   root to: 'main#index'
 end
