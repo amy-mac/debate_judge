@@ -16,6 +16,7 @@
 //= require underscore
 //= require backbone
 //= require debate_judge
+//= require bootstrap
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
