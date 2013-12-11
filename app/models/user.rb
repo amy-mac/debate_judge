@@ -2,6 +2,10 @@ class User < ActiveRecord::Base
   has_secure_password
   attr_accessible :name, :email, :password, :password_confirmation, :remember_token
 
+  has_many :tournaments
+  has_many :rounds
+  has_many :contentions
+
   valid_email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   before_save :create_remember_token
