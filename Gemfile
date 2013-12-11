@@ -17,6 +17,7 @@ group :development, :test do
   gem 'konacha'
   gem 'sqlite3', '1.3.8'
   gem 'letter_opener'
+  gem 'quiet_assets'
 end
 
 group :test do
