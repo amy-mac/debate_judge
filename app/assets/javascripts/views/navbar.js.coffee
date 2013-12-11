@@ -7,6 +7,7 @@ class DebateJudge.Views.Navbar extends Backbone.View
     'click #sign_up_link': 'signUpPage'
     'click .navbar-brand': 'indexPage'
     'click #signOut': 'deleteSession'
+    'click #editAccount': 'editUser'
 
   render: ->
     $(@el).html(@template())
@@ -27,3 +28,7 @@ class DebateJudge.Views.Navbar extends Backbone.View
       method: 'post'
     .done ->
       window.location.href = '/'
+
+  editUser: (e) ->
+    e.preventDefault()
+    page "/users/#{gon.currentUser.id}"

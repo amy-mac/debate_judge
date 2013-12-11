@@ -6,13 +6,21 @@
     %span.icon-bar
   %a.navbar-brand{ href: "#" } Arbitr
 %div.collapse.navbar-collapse
-  %ul.nav.navbar-nav
-    %li
-      %a{ href: '#', id: 'sign_up_link' } Sign Up
-    %li
-      -if gon.currentUser
-        %a#signOut Sign Out
-      -else
-        %a{ href: '#', id: 'sign_in_link', "data-toggle": "modal", "data-target": "#myModal" } Sign In
+  %ul.nav.navbar-nav.navbar-right
     %li
       %a{ href: "#about" } About
+    %li
+      %a{ href: '#', id: 'sign_up_link' } Sign Up
+    -if gon.currentUser
+      %li.dropdown
+        %a.dropdown-toggle{ href: "#", "data-toggle" => "dropdown" } Account
+          %b.caret
+        %ul.dropdown-menu
+          %li
+            %a{ href: "#" } Account Stuff here
+          %li.divider
+          %li
+            %a#signOut{ href: "#" } Sign Out
+    -else
+      %li
+        %a{ href: '#', id: 'sign_in_link', "data-toggle": "modal", "data-target": "#myModal" } Sign In
