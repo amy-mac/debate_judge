@@ -16,12 +16,14 @@ class DebateJudge.Views.TournamentsIndex extends Backbone.View
     @collection.each(@appendTournament)
     @
 
+  attributes: ->
+    tournament: $('#new_tourney_tournament').val()
+    school: $('#new_tourney_school').val()
+    date: $('#new_tourney_date').val()
+
   createTournament: (e) ->
     e.preventDefault()
-    tournament = $('#new_tourney_tournament').val()
-    school = $('#new_tourney_school').val()
-    date = $('#new_tourney_date').val()
-    @collection.create tournament: tournament, school: school, date: date
+    @collection.create @attributes()
     $('#new_tourney').addClass('hidden')
     $('#new_tourney_tournament').val('')
     $('#new_tourney_school').val('')

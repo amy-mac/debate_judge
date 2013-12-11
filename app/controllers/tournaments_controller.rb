@@ -1,4 +1,5 @@
 class TournamentsController < ApplicationController
+  skip_before_filter :authorize
   respond_to :json
 
   def index
