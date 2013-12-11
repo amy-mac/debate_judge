@@ -6,6 +6,7 @@ class DebateJudge.Views.Navbar extends Backbone.View
   events:
     'click #sign_up_link': 'signUpPage'
     'click .navbar-brand': 'indexPage'
+    'click #signOut': 'deleteSession'
 
   render: ->
     $(@el).html(@template())
@@ -18,3 +19,11 @@ class DebateJudge.Views.Navbar extends Backbone.View
   signUpPage: (e) ->
     e.preventDefault()
     page '/users/new'
+
+  deleteSession: (e) ->
+    e.preventDefault()
+    req = $.ajax
+      url: "/sessions/destroy"
+      method: 'post'
+    .done ->
+      window.location.href = '/'

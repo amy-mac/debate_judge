@@ -5,7 +5,8 @@ DebateJudge::Application.routes.draw do
     resources :users, except: [:index]
   end
   
-  resources :sessions, only: [:create, :destroy]
+  post '/sessions', to: 'sessions#create'
+  post '/sessions/destroy', to: 'sessions#destroy'
 
   root to: 'main#index'
   match '*path', to: 'main#index'
