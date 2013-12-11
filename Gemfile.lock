@@ -77,6 +77,9 @@ GEM
     faker (1.1.2)
       i18n (~> 0.5)
     ffi (1.9.3)
+    gon (4.1.1)
+      actionpack (>= 2.3.0)
+      json
     haml (4.0.4)
       tilt
     haml-rails (0.4)
@@ -224,6 +227,7 @@ DEPENDENCIES
   execjs
   factory_girl_rails (~> 4.2.1)
   faker (~> 1.1.2)
+  gon
   haml-rails
   haml_coffee_assets
   jquery-rails

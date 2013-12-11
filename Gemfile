@@ -8,6 +8,7 @@ gem 'sinatra'
 gem 'unicorn', '4.7.0'
 gem 'pg'
 gem 'backbone-on-rails'
+gem 'gon'
 
 group :development, :test do
   gem 'pry-rails'

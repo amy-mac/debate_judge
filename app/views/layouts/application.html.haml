@@ -2,30 +2,11 @@
 %html
 %head
   %title DebateJudge
+  = include_gon(:camel_case => true)
   = stylesheet_link_tag    "application", :media => "all"
   = javascript_include_tag "application"
   = csrf_meta_tags
 
 %body
-  / %div.navbar.navbar-inverse.navbar-static-top{ role: 'navigation' }
-  /   %div.container
-  /     %div.navbar-header
-  /       %button.navbar-toggle{type: "button", "data-toggle" => "collapse", "data-target" => ".navbar-collapse"}
-  /         %span.sr-only Toggle navigation
-  /         %span.icon-bar
-  /         %span.icon-bar
-  /         %span.icon-bar
-  /       %a.navbar-brand{ href: "/" } Arbitr
-  /     %div.collapse.navbar-collapse
-  /       %ul.nav.navbar-nav
-  /         %li.active
-  /           %a{ href: "#" } Sign Up
-  /         %li
-  /           %a{ href: "#about" } About
-  /         %li
-  /           %a{ href: "#contact" } Contact
-  /         %li
-  /           - if current_user
-  /             = link_to "Sign Out", session_path(current_user), method: :delete
 
   = yield
