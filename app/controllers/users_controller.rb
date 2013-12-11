@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     @user = User.create(params[:user])
 
     if @user.errors.empty?
+      sign_in(@user)
       respond_with @user
     else
       render json: {status: 'error'}, status: 500

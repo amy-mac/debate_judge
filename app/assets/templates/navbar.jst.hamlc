@@ -4,15 +4,18 @@
     %span.icon-bar
     %span.icon-bar
     %span.icon-bar
-  %a.navbar-brand{ href: "/" } Arbitr
+  %a.navbar-brand{ href: "#" } Arbitr
 %div.collapse.navbar-collapse
   %ul.nav.navbar-nav
     %li
       %a{ href: '#', id: 'sign_up_link' } Sign Up
     %li
-      %a{ href: "#about" } About
+      -if gon.current_user
+        %a{ href: "session_path/#{gon.current_user}", method: "delete" } Sign Out
+      -else
+        %a{ href: '#', id: 'sign_in_link', "data-toggle": "modal", "data-target": "#myModal" } Sign In
     %li
-      %a{ href: "#contact" } Contact
+      %a{ href: "#about" } About
     / %li
     /   - if current_user
     /     = link_to "Sign Out", session_path(current_user), method: :delete

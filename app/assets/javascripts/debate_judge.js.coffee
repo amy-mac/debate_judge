@@ -7,6 +7,7 @@ window.DebateJudge =
     page()
     nav = new DebateJudge.Views.Navbar()
     $('#navbar').html(nav.render().el)
+    alert gon.currentUser
 
 $(document).ready ->
   DebateJudge.initialize()
@@ -33,3 +34,7 @@ page '/users/new', ->
     
 # page 'users/edit' ->
 #   alert "user edit"
+
+page '/login', ->
+  view = new DebateJudge.Views.SessionsNew()
+  $('#main').html(view.render().el)

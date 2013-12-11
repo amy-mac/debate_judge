@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Tournament.delete_all
+
 tournaments = Tournament.create([
   { tournament: 'Stanford Invitational', school: 'Stanford', date: '2013-10-12'},
   { tournament: 'Debaters Anonymous', school: 'Berkeley University', date: '2013-11-14'},
