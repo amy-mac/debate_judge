@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131209044730) do
+ActiveRecord::Schema.define(:version => 20131212044535) do
+
+  create_table "rounds", :force => true do |t|
+    t.integer  "round_num"
+    t.string   "event"
+    t.integer  "tournament_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "tournaments", :force => true do |t|
     t.string   "tournament"
