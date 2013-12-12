@@ -2,11 +2,13 @@
 %html
 %head
   %title DebateJudge
-  = include_gon(:camel_case => true)
+  = include_gon(:camel_case => true, :watch => true)
   = stylesheet_link_tag    "application", :media => "all"
   = javascript_include_tag "application"
   = csrf_meta_tags
 
 %body
-
+  
   = yield
+  - flash.each do |name, msg|
+    = content_tag(:div, msg)

@@ -30,4 +30,6 @@ class DebateJudge.Views.UsersNew extends Backbone.View
     # }
 
     user = new DebateJudge.Models.User @attributes()
-    user.save()
+    user.save null,
+      success: (data) ->
+        console.log(data)
