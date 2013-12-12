@@ -3,7 +3,7 @@ class Round < ActiveRecord::Base
 
   belongs_to :tournament
   belongs_to :user
-  has_many :contentions
+  has_many :contentions, dependent: :destroy
 
   validates :round_num, presence: true
   validates :event, presence: true

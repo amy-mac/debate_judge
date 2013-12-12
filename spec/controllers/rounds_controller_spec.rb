@@ -2,13 +2,17 @@ require 'spec_helper'
 
 describe RoundsController do
   describe 'GET index' do
-    get :index
-    expect(response).to render_json
+    it 'renders the JSON for all rounds' do
+      get :index
+      expect(response).to render_json
+    end
   end
 
   describe 'GET show' do
-    get :show
-    expect(response).to render_json
+    it 'renders the JSON for requested round' do
+      get :show
+      expect(response).to render_json
+    end
   end
 
   describe 'GET new' do
