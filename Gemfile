@@ -15,7 +15,6 @@ group :development, :test do
   gem 'rspec-rails', '2.14.0'
   gem 'factory_girl_rails', '~> 4.2.1'
   gem 'konacha'
-  gem 'sqlite3', '1.3.8'
   gem 'letter_opener'
   gem 'quiet_assets'
 end
