@@ -1,3 +1,3 @@
 class DebateJudge.Collections.Rounds extends Backbone.Collection
-  url: '/rounds'
+  url: '/api/rounds'
   model: DebateJudge.Models.Round

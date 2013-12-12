@@ -1,4 +1,5 @@
 class RoundsController < ApplicationController
+  skip_before_filter :authorize
   respond_to :json
 
   def index
@@ -6,11 +7,11 @@ class RoundsController < ApplicationController
   end
 
   def show
-    respond_with Round.find(params[:id])
-  end
-
-  def new
-
+    if User.find(current_user.id).rounds.find(params[:id]).errors.empty?
+      respond_with Round.find(params[:id])
+    else
+      render json: {status: 'error'}, status: 500
+    end
   end
 
   def create
@@ -19,19 +20,15 @@ class RoundsController < ApplicationController
     if round.errors.empty?
       respond_with round
     else
-      respond_with round.errors
+      render json: {status: 'error'}, status: 500
     end
   end
 
-  def edit
-
-  end
-
   def update
-
+    respond_with Round.update(params[:id], params[:round])
   end
 
   def destroy
-    respond_with Round.find(params[:id]).destroy
+    respond_with Round.destroy(params[:id])
   end
 end

@@ -14,8 +14,10 @@ $(document).ready ->
 
 page '/', ->
   @collection = new DebateJudge.Collections.Tournaments()
+  @rounds = new DebateJudge.Collections.Rounds()
+  @rounds.fetch()
   @collection.fetch()
-  view = new DebateJudge.Views.TournamentsIndex(collection: @collection)
+  view = new DebateJudge.Views.TournamentsIndex(collection: @collection, rounds: @rounds)
   $('#main').html(view.render().el)
 
 # page '/tournaments/:id' ->
@@ -30,9 +32,3 @@ page '/users/:id', ->
   @model.fetch().then =>
     view = new DebateJudge.Views.UsersShow(model: @model)
     $('#main').html(view.render().el)
-
-# page 'users/create' ->
-#   alert "user create"
-    
-# page 'users/edit' ->
-#   alert "user edit"

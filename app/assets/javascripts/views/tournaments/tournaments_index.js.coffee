@@ -7,9 +7,10 @@ class DebateJudge.Views.TournamentsIndex extends Backbone.View
     'submit #new_tourney': 'createTournament'
     'click #tourney_add': 'openForm'
 
-  initialize: ->
+  initialize: (opts) ->
     @collection.on('reset', @render, this)
     @collection.on('add', @appendTournament, this)
+    @rounds = opts.rounds
 
   render: ->
     $(@el).html(@template())
@@ -30,7 +31,9 @@ class DebateJudge.Views.TournamentsIndex extends Backbone.View
     $('#new_tourney_date').val('')
 
   appendTournament: (tourney) =>
-    view = new DebateJudge.Views.Tournament(model: tourney)
+    rounds = new DebateJudge.Collections.Rounds @rounds.filter (round) =>
+      (round.get 'tournament_id') == tourney.id
+    view = new DebateJudge.Views.Tournament(model: tourney, collection: rounds)
     $('#tournaments').append(view.render().el)
 
   openForm: (e) ->
