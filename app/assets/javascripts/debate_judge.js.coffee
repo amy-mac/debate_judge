@@ -25,9 +25,11 @@ page '/users/new', ->
   view = new DebateJudge.Views.UsersNew()
   $('#main').html(view.render().el)
 
-page 'users/:id', ->
-  view = new DebateJudge.Views.UsersShow()
-  $('#main').html(view.render().el)
+page '/users/:id', ->
+  @model = new DebateJudge.Models.User id: gon.currentUser.id
+  @model.fetch().then =>
+    view = new DebateJudge.Views.UsersShow(model: @model)
+    $('#main').html(view.render().el)
 
 # page 'users/create' ->
 #   alert "user create"

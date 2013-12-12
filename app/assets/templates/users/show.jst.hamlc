@@ -1,0 +1,49 @@
+.row
+  .col-xs-12
+    %h2 Account Details
+
+.row
+  .col-xs-12.col-md-6
+    .list-group
+      .dropdown
+        %a#changeName.dropdown-toggle.list-group-item{ href: "#", "data-toggle" => "dropdown" } Change name
+        .dropdown-menu{ role: "menu", "aria-labelledby" => "changeName" }
+          .modal-header
+            %h4.modal-title Change Name
+          .modal-body
+            %form{ role: "form" }
+              .form-group
+                %label{ for: "name" } Name
+                %input#edit_user_name.form-control{ type: "text", name: "name", required: true, placeholder: "#{@user.get('name')}", autofocus: true }
+
+              %input.btn.btn-default{ type: "submit", value: "Submit" }
+      .dropdown
+        %a#changeEmail.dropdown-toggle.list-group-item{ href: "#", "data-toggle" => "dropdown" } Change Email
+        .dropdown-menu{ role: "menu", "aria-labelledby" => "changeEmail" }
+          .modal-header
+            %h4.modal-title Change Email
+          .modal-body
+            %form{ role: "form" }
+              .form-group
+                %label{ for: "email" } Email
+                %input#edit_user_email.form-control{ type: "text", name: "email", required: true, placeholder: "#{@user.get('email')}", autofocus: true }
+
+              %input.btn.btn-default{ type: "submit", value: "Submit" }
+      .dropdown
+        %a#changePassword.dropdown-toggle.list-group-item{ href: "#", "data-toggle" => "dropdown" } Change Password
+        .dropdown-menu{ role: "menu", "aria-labelledby" => "changePassword" }
+          .modal-header
+            %h4.modal-title Change Password
+          .modal-body
+            %form{ role: "form" }
+              .form-group
+                %label{ for: "password" } Old Password
+                %input#old_user_password.form-control{ type: "text", name: "password", required: true}
+              .form-group
+                %label{ for: "new-password" } New Password
+                %input#new_user_password.form-control{ type: "text", name: "new-password", required: true}
+              .form-group
+                %label{ for: "confirm-new-password" } Confirm New Password
+                %input#new_user_password.form-control{ type: "text", name: "confirm-new-password", required: true}
+
+              %input.btn.btn-default{ type: "submit", value: "Submit" }

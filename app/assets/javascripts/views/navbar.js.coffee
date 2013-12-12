@@ -8,6 +8,7 @@ class DebateJudge.Views.Navbar extends Backbone.View
     'click .navbar-brand': 'indexPage'
     'click #signOut': 'deleteSession'
     'click #editAccount': 'editUser'
+    'click #myTournaments': 'tournamentsPage'
 
   render: ->
     $(@el).html(@template())
@@ -32,3 +33,7 @@ class DebateJudge.Views.Navbar extends Backbone.View
   editUser: (e) ->
     e.preventDefault()
     page "/users/#{gon.currentUser.id}"
+
+  tournamentsPage: (e) ->
+    e.preventDefault()
+    page "/"
