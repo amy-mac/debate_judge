@@ -1,3 +1,3 @@
 class DebateJudge.Models.User extends Backbone.Model
-  urlRoot: 'api/users'
+  urlRoot: '/api/users'
   paramRoot: 'user'

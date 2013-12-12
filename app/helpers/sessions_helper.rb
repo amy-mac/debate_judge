@@ -27,7 +27,10 @@ module SessionsHelper
   end
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) rescue nil
+    @current_user ||= begin
+      # Rails.logger.debug "LOADING CURRENT USER"
+      User.find(session[:user_id]) rescue nil
+    end
   end
 
 end
