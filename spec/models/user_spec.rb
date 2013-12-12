@@ -33,12 +33,17 @@ describe User do
 
     it 'is invalid without a password' do
       user = build(:user, password: nil)
-      expect(user).to have(2).errors_on(:password)
+      expect(user).to have(3).errors_on(:password)
     end
 
     it 'is invalid if password is less than 6 characters' do
       user = build(:user, password: 'foo')
-      expect(user).to have(1).errors_on(:password)
+      expect(user).to have(2).errors_on(:password)
+    end
+
+    it 'is invalid without a password confirmation' do
+      user = build(:user, password_confirmation: nil)
+      expect(user).to have(1).errors_on(:password_confirmation)
     end
 
     it 'is invalid with a duplicate email address' do

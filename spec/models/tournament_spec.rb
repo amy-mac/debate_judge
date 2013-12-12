@@ -9,6 +9,8 @@ describe Tournament do
 
     it 'has a valid date'
 
+    it 'is assigned to a user'
+
   end
 
   context 'invalid tournament entry' do
