@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :tournaments
   has_many :rounds, through: :tournaments
-  has_many :contentions
+  has_many :contentions, through: :rounds
 
   valid_email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
