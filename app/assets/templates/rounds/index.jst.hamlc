@@ -1,0 +1,4 @@
+- console.log @rounds.length
+- for round in @rounds.models
+  %li Round#
+    = round.get('round_num')

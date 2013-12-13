@@ -3,3 +3,4 @@
 = @tournament.get('school')
 ,
 = @tournament.get('date')
+%div.hidden
