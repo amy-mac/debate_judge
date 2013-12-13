@@ -9,7 +9,12 @@ describe Tournament do
 
     it 'has a valid date'
 
-    it 'is assigned to a user'
+    it 'is assigned to a user' do
+      user = create(:user)
+      tournament = create(:tournament)
+      user.tournaments << tournament
+      expect(tournament.user_id).to eq(user.id)
+    end
 
   end
 

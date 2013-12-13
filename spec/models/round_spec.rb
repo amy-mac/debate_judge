@@ -6,7 +6,12 @@ describe Round do
       expect(create(:round)).to be_valid
     end
 
-    it 'is assigned to a user'
+    it 'is assigned to a tournament' do
+      round = create(:round)
+      tournament = create(:tournament)
+      tournament.rounds << round
+      expect(round.tournament_id).to eq(tournament.id)
+    end
 
   end
 
