@@ -1,0 +1,2 @@
+module ContentionsHelper
+end

@@ -3,6 +3,7 @@ DebateJudge::Application.routes.draw do
   scope "api" do
     resources :tournaments
     resources :rounds
+    resources :contentions
     resources :users, except: [:index]
   end
   
