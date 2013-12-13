@@ -37,3 +37,6 @@ class DebateJudge.Views.TournamentsIndex extends Backbone.View
 
   openForm: (e) ->
     $('#new_tourney').toggleClass('hidden')
+
+  deleteTournament: (tourney) ->
+    @collection.remove(tourney)

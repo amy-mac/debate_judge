@@ -3,7 +3,7 @@ class RoundsController < ApplicationController
   respond_to :json
 
   def index
-    respond_with Round.all
+    respond_with User.find(current_user.id).rounds
   end
 
   def show

@@ -3,7 +3,7 @@ class TournamentsController < ApplicationController
   respond_to :json
 
   def index
-    respond_with Tournament.all
+    respond_with User.find(current_user.id).tournaments
   end
 
   def show
@@ -11,7 +11,14 @@ class TournamentsController < ApplicationController
   end
 
   def create
-    respond_with Tournament.create(params.slice(:tournament, :school, :date))
+    tournament = Tournament.create(params.slice(:tournament, :school, :date))
+
+    if tournament.errors.empty?
+      User.find(current_user.id).tournaments << tournament
+      respond_with tournament
+    else
+      render json: {status: 'error'}, status: 500
+    end
   end
 
   def update

@@ -13,10 +13,13 @@ class DebateJudge.Views.Tournament extends Backbone.View
   render: ->
     $(@el).html(@template(tournament: @model, rounds: @collection))
     $(@el).attr("href", "#")
-    view = new DebateJudge.Views.RoundsIndex(collection: @collection, tournament: @model.id)
+    view = new DebateJudge.Views.RoundsIndex(collection: @collection, tournament: @model)
     $(@el).append(view.render().el)
     @
 
   unhideRounds: ->
     # $(@el).toggleClass('active')
     $(@el).find("#rounds").toggleClass('hidden')
+
+  deleteTournament: ->
+    @model.destroy()
