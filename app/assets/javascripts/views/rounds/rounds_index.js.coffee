@@ -1,6 +1,6 @@
 class DebateJudge.Views.RoundsIndex extends Backbone.View
   template: JST['rounds/index']
-  className: 'list-group-text, hidden'
+  className: 'list-group-text'
   id: "rounds"
 
   events:
@@ -19,6 +19,8 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
 
   addRound: (e) ->
     e.preventDefault()
-    @collection.create tournament_id: @tournament, event: $("#new_round_event").val(), round_num: $("#new_round_num").val()
+    event_type = $(e.currentTarget).parent().find("#new_round_event").val()
+    round_num = $(e.currentTarget).parent().find("#new_round_num").val()
+    @collection.create tournament_id: @tournament, event: event_type, round_num: round_num 
     $('#new_round_num').val('')
     $('#new_round_event').val('')

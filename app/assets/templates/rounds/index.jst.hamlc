@@ -8,7 +8,6 @@
             %a{ href: "#" } Round
               = round.get('round_num')
   -if @parli.length isnt 0
-    -console.log @parli.models
     %li
       %strong Parli
       %ul
@@ -34,22 +33,26 @@
               = round.get('round_num')
 
 .dropdown.text-right
-  %a#roundAdd.dropdown-toggle{ href: "#", "data-toggle" => "dropdown" } New Round
-  .dropdown-menu.pull-right.text-left{ role: "menu", "aria-labelledby" => "roundAdd" }
-    .modal-header
-      %h4.modal-title Create Round
-    .modal-body
-      %form#new_round{ role: "form" }
-        .form-group
-          %label{ for: "event" } Event
-          %select#new_round_event.form-control{ name: "event", required: true }
-            %option Lincoln Douglas
-            %option Parli
-            %option Policy
-            %option Public Forum
-        
-        .form-group
-          %label{ for: "round_num" } Round Number
-          %input#new_round_num.form-control{type: 'number', name: 'round_num', min: "1", max: "15", required: true}
-        
-        %input.btn.btn-default{type: 'submit', value: "Create"}
+  %ul.list-inline
+    %li
+      %a#roundAdd.dropdown-toggle{ href: "#", "data-toggle" => "dropdown" } New Round
+      .dropdown-menu.pull-right.text-left{ role: "menu", "aria-labelledby" => "roundAdd" }
+        .modal-header
+          %h4.modal-title Create Round
+        .modal-body
+          %form#new_round{ role: "form" }
+            .form-group
+              %label{ for: "event" } Event
+              %select#new_round_event.form-control{ name: "event", required: true }
+                %option Lincoln Douglas
+                %option Parli
+                %option Policy
+                %option Public Forum
+            
+            .form-group
+              %label{ for: "round_num" } Round Number
+              %input#new_round_num.form-control{type: 'number', name: 'round_num', min: "1", max: "15", required: true}
+            
+            %input.btn.btn-default{type: 'submit', value: "Create"}
+    %li
+      %a Delete Tournament
