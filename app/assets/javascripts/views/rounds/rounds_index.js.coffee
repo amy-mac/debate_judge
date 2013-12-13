@@ -5,6 +5,7 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
 
   events:
     'submit #new_round': 'addRound'
+    'click #delete_tourney': 'deleteTournament'
 
   initialize: (opts) ->
     @tournament = opts.tournament
@@ -14,7 +15,7 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
     @public = new DebateJudge.Collections.Rounds @collection.where event: "Public Forum"
 
   render: ->
-    $(@el).html(@template(lincoln: @lincoln, parli: @parli, policy: @policy, public: @public))
+    $(@el).html(@template(lincoln: @lincoln, parli: @parli, policy: @policy, public: @public, collection: @collection))
     @
 
   addRound: (e) ->
@@ -24,3 +25,10 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
     @collection.create tournament_id: @tournament, event: event_type, round_num: round_num 
     $('#new_round_num').val('')
     $('#new_round_event').val('')
+
+  deleteTournament: (e) ->
+    @tournament.destroy()
+
+
+
+ 

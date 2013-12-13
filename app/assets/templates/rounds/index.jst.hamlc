@@ -1,36 +1,39 @@
-%ul.list-unstyled
-  -if @lincoln.length isnt 0
-    %li
-      %strong Lincoln Douglas
-      %ul
-        - for round in @lincoln.models
-          %li
-            %a{ href: "#" } Round
-              = round.get('round_num')
-  -if @parli.length isnt 0
-    %li
-      %strong Parli
-      %ul
-        - for round in @parli.models
-          %li
-            %a{ href: "#" } Round
-              = round.get('round_num')
-  -if @policy.length isnt 0
-    %li
-      %strong Policy
-      %ul
-        - for round in @policy.models
-          %li
-            %a{ href: "#" } Round
-              = round.get('round_num')
-  -if @public.length isnt 0
-    %li
-      %strong Public Forum
-      %ul
-        - for round in @public.models
-          %li
-            %a{ href: "#" } Round
-              = round.get('round_num')
+-if @collection.length is 0
+  %p.text-muted No rounds added yet
+-else
+  %ul.list-unstyled
+    -if @lincoln.length isnt 0
+      %li
+        %strong Lincoln Douglas
+        %ul
+          - for round in @lincoln.models
+            %li
+              %a{ href: "#" } Round
+                = round.get('round_num')
+    -if @parli.length isnt 0
+      %li
+        %strong Parli
+        %ul
+          - for round in @parli.models
+            %li
+              %a{ href: "#" } Round
+                = round.get('round_num')
+    -if @policy.length isnt 0
+      %li
+        %strong Policy
+        %ul
+          - for round in @policy.models
+            %li
+              %a{ href: "#" } Round
+                = round.get('round_num')
+    -if @public.length isnt 0
+      %li
+        %strong Public Forum
+        %ul
+          - for round in @public.models
+            %li
+              %a{ href: "#" } Round
+                = round.get('round_num')
 
 .dropdown.text-right
   %ul.list-inline
@@ -55,4 +58,4 @@
             
             %input.btn.btn-default{type: 'submit', value: "Create"}
     %li
-      %a Delete Tournament
+      %a#delete_tourney{ href: "#" } Delete Tournament
