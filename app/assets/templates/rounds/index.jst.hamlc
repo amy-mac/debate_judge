@@ -42,7 +42,7 @@
       %form#new_round{ role: "form" }
         .form-group
           %label{ for: "event" } Event
-          %select.form-control{ name: "event", required: true }
+          %select#new_round_event.form-control{ name: "event", required: true }
             %option Lincoln Douglas
             %option Parli
             %option Policy

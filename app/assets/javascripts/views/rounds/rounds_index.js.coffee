@@ -3,7 +3,11 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
   className: 'list-group-text, hidden'
   id: "rounds"
 
-  initialize: ->
+  events:
+    'submit #new_round': 'addRound'
+
+  initialize: (opts) ->
+    @tournament = opts.tournament
     @lincoln = new DebateJudge.Collections.Rounds @collection.where event: "Lincoln Douglas"
     @parli = new DebateJudge.Collections.Rounds @collection.where event: "Parli"
     @policy = new DebateJudge.Collections.Rounds @collection.where event: "Policy"
@@ -13,5 +17,8 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
     $(@el).html(@template(lincoln: @lincoln, parli: @parli, policy: @policy, public: @public))
     @
 
-  openForm: (e) ->
-    $('#new_round').toggleClass('hidden')
+  addRound: (e) ->
+    e.preventDefault()
+    @collection.create tournament_id: @tournament, event: $("#new_round_event").val(), round_num: $("#new_round_num").val()
+    $('#new_round_num').val('')
+    $('#new_round_event').val('')

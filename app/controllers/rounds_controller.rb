@@ -18,6 +18,7 @@ class RoundsController < ApplicationController
     round = Round.create(params[:round])
 
     if round.errors.empty?
+      Tournament.find(params[:tournament_id]).rounds << round
       respond_with round
     else
       render json: {status: 'error'}, status: 500
