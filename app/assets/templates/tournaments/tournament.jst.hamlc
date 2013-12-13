@@ -1,6 +1,9 @@
-= @tournament.get('tournament')
-,
-= @tournament.get('school')
-,
-= @tournament.get('date')
+%span.badge
+  = @rounds.length
+%h4.list-group-item-heading
+  = @tournament.get('tournament')
+  ,
+  = @tournament.get('school')
+  ,
+  = @tournament.get('date')
 %div.hidden

@@ -1,4 +1,29 @@
-- console.log @rounds.length
-- for round in @rounds.models
-  %li Round#
-    = round.get('round_num')
+-if @lincoln.length isnt 0
+  %li
+    %strong Lincoln Douglas
+    %ul
+      - for round in @lincoln.models
+        %li Round
+          = round.get('round_num')
+-if @parli.length isnt 0
+  -console.log @parli.models
+  %li
+    %strong Parli
+    %ul
+      - for round in @parli.models
+        %li Round
+          = round.get('round_num')
+-if @policy.length isnt 0
+  %li
+    %strong Policy
+    %ul
+      - for round in @policy.models
+        %li Round
+          = round.get('round_num')
+-if @public.length isnt 0
+  %li
+    %strong Public Forum
+    %ul
+      - for round in @public.models
+        %li Round
+          = round.get('round_num')
