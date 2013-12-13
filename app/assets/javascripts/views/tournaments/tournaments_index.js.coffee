@@ -9,6 +9,7 @@ class DebateJudge.Views.TournamentsIndex extends Backbone.View
 
   initialize: (opts) ->
     @collection.on 'sort', @render, this
+    @collection.on 'remove', @render, this
     @rounds = opts.rounds
 
   render: ->
@@ -37,6 +38,3 @@ class DebateJudge.Views.TournamentsIndex extends Backbone.View
 
   openForm: (e) ->
     $('#new_tourney').toggleClass('hidden')
-
-  deleteTournament: (tourney) ->
-    @collection.remove(tourney)
