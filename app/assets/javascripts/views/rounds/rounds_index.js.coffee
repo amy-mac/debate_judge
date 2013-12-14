@@ -6,6 +6,7 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
   events:
     'submit #new_round': 'addRound'
     'click #delete_tourney': 'deleteTournament'
+    'click .test': 'openRound'
 
   initialize: (opts) ->
     @tournament = opts.tournament
@@ -29,6 +30,7 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
   deleteTournament: (e) ->
     @tournament.destroy()
 
-
-
- 
+  openRound: (e) ->
+    console.log "I'm working"
+    round_id = $(e.currentTarget).data('id')
+    page "/rounds/#{round_id}"

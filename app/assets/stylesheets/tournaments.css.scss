@@ -6,3 +6,21 @@
 #tournaments {
   padding-top: 1.5em;
 }
+
+body { padding-top: 70px; }
+
+#round_page {
+  width: 1662px;
+  height: 600px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.speech {
+  width: 280px;
+  float: left;
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}

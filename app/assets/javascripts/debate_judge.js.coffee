@@ -20,8 +20,10 @@ page '/', ->
   view = new DebateJudge.Views.TournamentsIndex(collection: @collection, rounds: @rounds)
   $('#main').html(view.render().el)
 
-# page '/tournaments/:id' ->
-#   alert "show page"
+page '/rounds/:id', ->
+  view = new DebateJudge.Views.Round()
+  $('#main').empty()
+  $('#round_page').html(view.render().el)
 
 page '/users/new', ->
   view = new DebateJudge.Views.UsersNew()

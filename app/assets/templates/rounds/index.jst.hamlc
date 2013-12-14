@@ -16,7 +16,7 @@
         %ul
           - for round in @parli.models
             %li
-              %a{ href: "#" } Round
+              %a.test{ href: "#", "data-id" => "#{round.id}" } Round
                 = round.get('round_num')
     -if @policy.length isnt 0
       %li
