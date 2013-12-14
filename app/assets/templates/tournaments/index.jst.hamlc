@@ -1,8 +1,9 @@
-.col-xs-12
-  .page-header
-    %h1 My Tournaments
-      %small 
-        %a{href: '#', id: 'tourney_add'} Add New
+.row
+  .col-xs-12
+    .page-header
+      %h1 My Tournaments
+        %small 
+          %a{href: '#', id: 'tourney_add'} Add New
 
 .row
   .col-sm-12.col-md-8

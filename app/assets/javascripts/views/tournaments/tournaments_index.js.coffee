@@ -1,7 +1,7 @@
 class DebateJudge.Views.TournamentsIndex extends Backbone.View
 
   template: JST['tournaments/index']
-  className: 'row'
+  className: 'container'
 
   events:
     'submit #new_tourney': 'createTournament'

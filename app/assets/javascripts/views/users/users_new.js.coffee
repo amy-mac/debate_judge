@@ -1,7 +1,7 @@
 class DebateJudge.Views.UsersNew extends Backbone.View
 
   template: JST['users/new']
-  className: 'row'
+  className: 'container'
 
   events:
     'submit #new_user': 'addUser'

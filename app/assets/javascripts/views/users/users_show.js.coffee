@@ -1,6 +1,6 @@
 class DebateJudge.Views.UsersShow extends Backbone.View
   template: JST['users/show']
-  className: 'row'
+  className: 'container'
 
   initialize: ->
     @model.on('reset', @render, this)
