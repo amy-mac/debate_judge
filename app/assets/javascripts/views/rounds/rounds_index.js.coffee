@@ -31,6 +31,5 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
     @tournament.destroy()
 
   openRound: (e) ->
-    console.log "I'm working"
     round_id = $(e.currentTarget).data('id')
     page "/rounds/#{round_id}", round_id
