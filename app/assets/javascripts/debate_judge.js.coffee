@@ -21,9 +21,12 @@ page '/', ->
   $('#main').html(view.render().el)
 
 page '/rounds/:id', (ctx) ->
+  @contentions = new DebateJudge.Collections.Contentions()
+  @contentions = new DebateJudge.Collections.Contentions @contentions.where round_id: ctx.params.id
   @model = new DebateJudge.Models.Round id: ctx.params.id
+  @contentions.fetch()
   @model.fetch().then =>
-    view = new DebateJudge.Views.Round(model: @model)
+    view = new DebateJudge.Views.Round(model: @model, collection: @contentions)
     $('#main').empty()
     $('#round_page').html(view.render().el)
 
