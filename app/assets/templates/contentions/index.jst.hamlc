@@ -3,8 +3,9 @@
   %div.speech-contentions
     .contention
       Testing
-    %div.contention-composer
+    %div.contention-composer.hidden
       %div.contention
         %textarea.form-control
       %input.btn.btn-default{ type: 'submit', value: 'Add' }
-  %a.text-muted{ href: "#" } Add contention
+      %button.btn.btn-default Cancel
+  %a.open-composer.text-muted{ href: "#" } Add contention
