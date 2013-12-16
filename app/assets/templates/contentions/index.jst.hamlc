@@ -1,11 +1,12 @@
 %h4= @speech
 %div.speech-contention-area
   %div.speech-contentions
-    .contention
-      Testing
+    .contentions
+      .contention
+        Testing
     %div.contention-composer.hidden
       %div.contention
-        %textarea.form-control
-      %input.btn.btn-default{ type: 'submit', value: 'Add' }
+        %textarea#new-contention.form-control
+      %input#new-contention-submit.btn.btn-default{ type: 'submit', value: 'Add' }
       %button.btn.btn-default Cancel
   %a.open-composer.text-muted{ href: "#" } Add contention

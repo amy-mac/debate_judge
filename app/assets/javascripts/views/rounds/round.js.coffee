@@ -52,6 +52,6 @@ class DebateJudge.Views.Round extends Backbone.View
 
   appendSpeech: (speech) =>
     contentions = new DebateJudge.Collections.Contentions @collection.filter (contentions) =>
-      (contention.get 'speech_type') == speech
+      (contentions.get 'speech_type') == speech
     view = new DebateJudge.Views.ContentionsIndex(collection: contentions, model: @model, speech: speech)
     @$("#speech-area").append(view.render().$el)

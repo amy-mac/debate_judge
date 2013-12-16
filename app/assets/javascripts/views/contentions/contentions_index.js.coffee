@@ -5,14 +5,17 @@ class DebateJudge.Views.ContentionsIndex extends Backbone.View
   events:
     'click .open-composer': 'openForm'
     'click button': 'closeForm'
-    'submit .contention-composer': 'addContention'
+    'click #new-contention-submit': 'createContention'
 
   initialize: (opts) ->
     @speech = opts.speech
+    @collection.on 'reset', @render,this
+    @collection.on 'add', @render, this
 
   render: ->
     $(@el).html(@template(speech: @speech))
     $(@el).attr("data-id", "#{@speech}")
+    @collection.each(@appendContention, @)
     @
 
   openForm: (e) ->
@@ -21,8 +24,12 @@ class DebateJudge.Views.ContentionsIndex extends Backbone.View
   closeForm: (e) ->
     @$('.contention-composer').addClass('hidden')
 
-  addContention: (e) ->
+  createContention: (e) ->
     e.preventDefault()
-    contention = @$("textarea").val()
-    @collection.create contention: contention
-    $('textarea').val('')
+    contention = @$("#new-contention").val()
+    @collection.create speech_type: @speech, contention: contention, round_id: @model.id
+    @$('textarea').val('')
+
+  appendContention: (contention) ->
+    view = new DebateJudge.Views.Contention(model: contention)
+    @$('.contentions').append(view.render().$el)

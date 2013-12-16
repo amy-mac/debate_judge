@@ -14,10 +14,10 @@ class ContentionsController < ApplicationController
   end
 
   def create
-    contention = Contention.create(params[:contention])
-
+    contention = Contention.create(params.slice(:speech_type, :contention))
+    # round_id = params.slice(:round_id)
     if contention.errors.empty?
-      Round.find(params[:round.id]).contentions << contention
+      Round.find(params[:round_id]).contentions << contention
       respond_with contention
     else
       render json: {status: 'error'}, status: 500
