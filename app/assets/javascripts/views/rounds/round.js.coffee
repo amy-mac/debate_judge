@@ -5,7 +5,7 @@ class DebateJudge.Views.Round extends Backbone.View
     @model.on('reset', @render, this)
     switch @model.get('event')
       when "Policy"
-        @event = [
+        @speeches = [
           '1AC',
           'Cross Examination 1',
           '1NC',
@@ -20,7 +20,7 @@ class DebateJudge.Views.Round extends Backbone.View
           '2AR'
         ]
       when "Public Forum"
-        @event = [
+        @speeches = [
           'Aff1',
           'Neg1',
           'Crossfire1',
@@ -32,7 +32,7 @@ class DebateJudge.Views.Round extends Backbone.View
           'Crossfire3'
         ]
       when 'Lincoln Douglas'
-        @event = [
+        @speeches = [
           'First Affirmative',
           'Cross Examination 1',
           'First Negation',
@@ -42,9 +42,16 @@ class DebateJudge.Views.Round extends Backbone.View
           'Third Affirmative'
         ]
       else
-        @event = ['Aff1', 'Neg1', 'Aff2', 'Neg2', 'Aff3', 'Neg3']
-
+        @speeches = ['Aff1', 'Neg1', 'Aff2', 'Neg2', 'Aff3', 'Neg3']
 
   render: ->
-    $(@el).html(@template(round: @model, event: @event))
+    $(@el).html(@template(round: @model, speeches: @speeches))
+    for speech in @speeches
+      @appendSpeech(speech)
     @
+
+  appendSpeech: (speech) =>
+    contentions = new DebateJudge.Collections.Contentions @collection.filter (contentions) =>
+      (contention.get 'speech_type') == speech
+    view = new DebateJudge.Views.ContentionsIndex(collection: contentions, model: @model, speech: speech)
+    @$("#speech-area").append(view.render().$el)

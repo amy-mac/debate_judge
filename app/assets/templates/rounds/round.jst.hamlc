@@ -1,22 +1,10 @@
 %div#round-header
   %div
     %strong= @round.get('event') 
-      \- Round
+      &mdash; Round
       = @round.get('round_num')
 
 %div#speech-wrapper
 
   %div#speech-area
-    -for speech in @event
-      %div.speech{ "data-id" => "#{speech}" }
-        %h4= speech
-        %div.speech-contention-area
-          %div.speech-contentions
-            .contention
-              Testing
-            %div.contention-composer
-              %div.contention
-                %textarea.form-control
-              %input.btn.btn-default{ type: 'submit', value: 'Add' }
-          %a.text-muted{ href: "#" } Add contention
 
