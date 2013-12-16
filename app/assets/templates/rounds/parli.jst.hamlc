@@ -1,6 +1,10 @@
+- console.log @round
+
 %div#round-header
   %div
-    %strong Parli - Round 2
+    %strong= @round.get('event') 
+      \- Round
+      = @round.get('round_num')
 
 %div#speech-wrapper
 

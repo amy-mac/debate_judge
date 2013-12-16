@@ -33,4 +33,4 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
   openRound: (e) ->
     console.log "I'm working"
     round_id = $(e.currentTarget).data('id')
-    page "/rounds/#{round_id}"
+    page "/rounds/#{round_id}", round_id

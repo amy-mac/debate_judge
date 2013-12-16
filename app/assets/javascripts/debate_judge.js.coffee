@@ -11,8 +11,8 @@ window.DebateJudge =
 $(document).ready ->
   DebateJudge.initialize()
 
-
 page '/', ->
+  $('#round_page').empty()
   @collection = new DebateJudge.Collections.Tournaments()
   @rounds = new DebateJudge.Collections.Rounds()
   @rounds.fetch()
@@ -20,16 +20,20 @@ page '/', ->
   view = new DebateJudge.Views.TournamentsIndex(collection: @collection, rounds: @rounds)
   $('#main').html(view.render().el)
 
-page '/rounds/:id', ->
-  view = new DebateJudge.Views.Round()
-  $('#main').empty()
-  $('#round_page').html(view.render().el)
+page '/rounds/:id', (ctx) ->
+  @model = new DebateJudge.Models.Round id: ctx.params.id
+  @model.fetch().then =>
+    view = new DebateJudge.Views.Round(model: @model)
+    $('#main').empty()
+    $('#round_page').html(view.render().el)
 
 page '/users/new', ->
+  $('#round_page').empty()
   view = new DebateJudge.Views.UsersNew()
   $('#main').html(view.render().el)
 
 page '/users/:id', ->
+  $('#round_page').empty()
   @model = new DebateJudge.Models.User id: gon.currentUser.id
   @model.fetch().then =>
     view = new DebateJudge.Views.UsersShow(model: @model)
