@@ -18,6 +18,7 @@ body {
 }
 
 #round_page {
+  width: 100%;
   margin: 0;
   padding: 0;
 }
@@ -29,36 +30,38 @@ body {
 }
 
 #speech-wrapper {
-  margin: 0;
   padding: 0;
-  width: 900px;
   overflow-x: scroll;
   overflow-y: hidden;
-  height: 700px;
+  // height: 700px;
+  height: 100%;
+  margin-right: 0;
 }
 
 #speech-area {
   float: left;
-  height: 500px;
+  max-height: 100%;
   margin-right: -999em;
 }
 
 .speech {
   width: 280px;
-  min-height: 100px;
   float: left;
   border: 1px solid #000;
   margin: 0 5px;
   padding: 4px;
-  display: inline
+  max-height: 100%;
 }
 
 .speech-contention-area {
-  margin-bottom:0;
+
+}
+
+.speech-contentions {
   overflow-y: auto;
   overflow-x:hidden;
   padding:4px 2px 1px;
-  height: 90%;
+  max-height: 500px;
 }
 
 .contention {
