@@ -5,63 +5,16 @@
 %div#speech-wrapper
 
   %div#speech-area
+    -for speech in ['Aff1', 'Neg1', 'Aff2', 'Neg2', 'Aff3', 'Neg3']
+      %div.speech{ "data-id" => "#{speech}" }
+        %h4= speech
+        %div.speech-contention-area
+          %div.speech-contentions
+            .contention
+              Testing
+            %div.contention-composer
+              %div.contention
+                %textarea.form-control
+              %input.btn.btn-default{ type: 'submit', value: 'Add' }
+          %a.text-muted{ href: "#" } Add contention
 
-    %div.speech
-      %h4 Aff1
-      %div.speech-contention-area
-        %div.speech-contentions
-          %div.contention
-            %p
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          %div.contention
-            %p
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          %div.contention
-            %p
-              mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          %div.contention
-            %p
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          %div.contention
-            %p
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          %div.contention
-            %p
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        %footer Add contention
-
-    %div.speech
-      %h4 Neg1
-      %div.speech-contention-area
-        %div.speech-contentions
-      %footer Add contention
-
-    %div.speech
-      %h4 Aff2
-      %div.speech-contention-area
-        %div.speech-contentions
-      %footer Add contention
-
-    %div.speech
-      %h4 Neg2
-      %div.speech-contention-area
-        %div.speech-contentions
-      %footer Add contention
-
-    %div.speech
-      %h4 Aff3
-      %div.speech-contention-area
-        %div.speech-contentions
-      %footer Add contention
-
-    %div.speech
-      %h4 Neg3
-      %div.speech-contention-area
-        %div.speech-contentions
-      %footer Add contention
