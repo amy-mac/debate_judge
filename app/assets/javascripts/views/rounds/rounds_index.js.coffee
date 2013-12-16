@@ -6,7 +6,7 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
   events:
     'submit #new_round': 'addRound'
     'click #delete_tourney': 'deleteTournament'
-    'click .test': 'openRound'
+    'click .open-round': 'openRound'
 
   initialize: (opts) ->
     @tournament = opts.tournament

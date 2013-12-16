@@ -8,7 +8,7 @@
         %ul
           - for round in @lincoln.models
             %li
-              %a{ href: "#" } Round
+              %a.open-round{ href: "#", "data-id" => "#{round.id}" } Round
                 = round.get('round_num')
     -if @parli.length isnt 0
       %li
@@ -16,7 +16,7 @@
         %ul
           - for round in @parli.models
             %li
-              %a.test{ href: "#", "data-id" => "#{round.id}" } Round
+              %a.open-round{ href: "#", "data-id" => "#{round.id}" } Round
                 = round.get('round_num')
     -if @policy.length isnt 0
       %li
@@ -24,7 +24,7 @@
         %ul
           - for round in @policy.models
             %li
-              %a{ href: "#" } Round
+              %a.open-round{ href: "#", "data-id" => "#{round.id}" } Round
                 = round.get('round_num')
     -if @public.length isnt 0
       %li
@@ -32,7 +32,7 @@
         %ul
           - for round in @public.models
             %li
-              %a{ href: "#" } Round
+              %a.open-round{ href: "#", "data-id" => "#{round.id}" } Round
                 = round.get('round_num')
 
 .dropdown.text-right
