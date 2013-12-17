@@ -23,7 +23,7 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
     e.preventDefault()
     event_type = $(e.currentTarget).parent().find("#new_round_event").val()
     round_num = $(e.currentTarget).parent().find("#new_round_num").val()
-    @collection.create tournament_id: @tournament, event: event_type, round_num: round_num 
+    @collection.create tournament_id: @tournament.id, event: event_type, round_num: round_num 
     $('#new_round_num').val('')
     $('#new_round_event').val('')
 
