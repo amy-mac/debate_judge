@@ -11,10 +11,11 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
 
   initialize: (opts) ->
     @tournament = opts.tournament
+    @collection.on('sort', @render, this)
 
   render: ->
     @filterEvents()
-    $(@el).html(@template(lincoln: @lincoln, parli: @parli, policy: @policy, public: @public, collection: @collection))
+    @$el.html(@template(lincoln: @lincoln, parli: @parli, policy: @policy, public: @public, collection: @collection))
     @
 
   filterEvents: ->
@@ -32,8 +33,11 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
       event: event_type
       round_num: round_num
     }, {
+      wait: true
       success: (model, response) ->
         page "/rounds/#{response.id}"
+      error: (response) =>
+        alert "That round already exists"
     }
 
   deleteTournament: (e) ->

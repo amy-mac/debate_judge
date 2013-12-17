@@ -5,6 +5,6 @@ class Round < ActiveRecord::Base
   belongs_to :user
   has_many :contentions, dependent: :destroy
 
-  validates :round_num, presence: true
+  validates :round_num, presence: true, uniqueness: {:scope => [:event, :tournament_id]}
   validates :event, presence: true
 end

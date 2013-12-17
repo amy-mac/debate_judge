@@ -6,10 +6,6 @@ class DebateJudge.Views.Tournament extends Backbone.View
   events:
     "click .list-group-item-heading": "unhideRounds"
 
-  initialize: ->
-    # @collection.on('sync', @render, this)
-    @collection.on('sort', @render, this)
-
   render: ->
     $(@el).html(@template(tournament: @model, rounds: @collection))
     $(@el).attr("href", "#")

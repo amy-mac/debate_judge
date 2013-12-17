@@ -25,7 +25,8 @@ class RoundsController < ApplicationController
       Tournament.find(params[:tournament_id]).rounds << round
       respond_with round
     else
-      render json: {status: 'error'}, status: 500
+      round.destroy()
+      respond_with round
     end
   end
 
