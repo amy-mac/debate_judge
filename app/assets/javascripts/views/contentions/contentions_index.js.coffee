@@ -20,6 +20,7 @@ class DebateJudge.Views.ContentionsIndex extends Backbone.View
     @
 
   openForm: (e) ->
+    e.preventDefault()
     @$('.contention-composer').removeClass('hidden')
 
   closeForm: (e) ->

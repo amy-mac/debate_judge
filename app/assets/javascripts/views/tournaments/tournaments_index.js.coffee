@@ -37,4 +37,5 @@ class DebateJudge.Views.TournamentsIndex extends Backbone.View
     @$('#tournaments').append(view.render().el)
 
   openForm: (e) ->
+    e.preventDefault()
     $('#new_tourney').toggleClass('hidden')

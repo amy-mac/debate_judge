@@ -49,4 +49,5 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
     page "/rounds/#{round_id}", round_id
 
   openForm: (e) ->
+    e.preventDefault()
     @$('#new_round').removeClass('hidden')

@@ -22,6 +22,7 @@ class DebateJudge.Views.Contention extends Backbone.View
       @model.destroy()
 
   openEditor: (e) ->
+    e.preventDefault()
     @$('.hide-on-edit').addClass('hidden')
     @$('.contention-editor').removeClass('hidden')
     @$('.contention-editor textarea').val(@model.get('contention'))
