@@ -1,9 +1,12 @@
 class TournamentsController < ApplicationController
-  skip_before_filter :authorize
   respond_to :json
 
   def index
-    respond_with User.find(current_user.id).tournaments
+    if current_user
+      respond_with User.find(current_user.id).tournaments
+    else
+      render json: {status: 'error'}, status: 500
+    end
   end
 
   def show
