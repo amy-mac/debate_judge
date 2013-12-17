@@ -1,1 +1,4 @@
 =@contention.get('contention')
+%div.text-right
+  %span.glyphicon.glyphicon-pencil.text-muted
+  %span.glyphicon.glyphicon-remove.text-muted

@@ -2,8 +2,6 @@
 %div.speech-contention-area
   %div.speech-contentions
     .contentions
-      .contention
-        Testing
     %div.contention-composer.hidden
       %div.contention
         %textarea#new-contention.form-control
