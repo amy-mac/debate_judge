@@ -21,9 +21,9 @@ page '/tournaments', ->
   @collection = new DebateJudge.Collections.Tournaments()
   @rounds = new DebateJudge.Collections.Rounds()
   @rounds.fetch()
-  @collection.fetch()
-  view = new DebateJudge.Views.TournamentsIndex(collection: @collection, rounds: @rounds)
-  $('#main').html(view.render().el)
+  @collection.fetch().then =>
+    view = new DebateJudge.Views.TournamentsIndex(collection: @collection, rounds: @rounds)
+    $('#main').html(view.render().el)
 
 page '/rounds/:id', (ctx) ->
   @userContentions = new DebateJudge.Collections.Contentions()
