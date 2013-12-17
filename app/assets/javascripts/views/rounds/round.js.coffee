@@ -3,6 +3,7 @@ class DebateJudge.Views.Round extends Backbone.View
 
   initialize: ->
     @model.on('reset', @render, this)
+    @contentions = new DebateJudge.Collections.Contentions @collection.where round_id: @model.id
     switch @model.get('event')
       when "Policy"
         @speeches = [
@@ -51,7 +52,7 @@ class DebateJudge.Views.Round extends Backbone.View
     @
 
   appendSpeech: (speech) =>
-    contentions = new DebateJudge.Collections.Contentions @collection.filter (contentions) =>
+    contentions = new DebateJudge.Collections.Contentions @contentions.filter (contentions) =>
       (contentions.get 'speech_type') == speech
     view = new DebateJudge.Views.ContentionsIndex(collection: contentions, model: @model, speech: speech)
     @$("#speech-area").append(view.render().$el)
