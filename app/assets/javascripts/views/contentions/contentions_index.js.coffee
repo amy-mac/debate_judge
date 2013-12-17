@@ -11,6 +11,7 @@ class DebateJudge.Views.ContentionsIndex extends Backbone.View
     @speech = opts.speech
     @collection.on 'reset', @render,this
     @collection.on 'add', @render, this
+    @collection.on 'remove', @render, @
 
   render: ->
     $(@el).html(@template(speech: @speech))
