@@ -10,14 +10,17 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
 
   initialize: (opts) ->
     @tournament = opts.tournament
+
+  render: ->
+    @filterEvents()
+    $(@el).html(@template(lincoln: @lincoln, parli: @parli, policy: @policy, public: @public, collection: @collection))
+    @
+
+  filterEvents: ->
     @lincoln = new DebateJudge.Collections.Rounds @collection.where event: "Lincoln Douglas"
     @parli = new DebateJudge.Collections.Rounds @collection.where event: "Parli"
     @policy = new DebateJudge.Collections.Rounds @collection.where event: "Policy"
     @public = new DebateJudge.Collections.Rounds @collection.where event: "Public Forum"
-
-  render: ->
-    $(@el).html(@template(lincoln: @lincoln, parli: @parli, policy: @policy, public: @public, collection: @collection))
-    @
 
   addRound: (e) ->
     e.preventDefault()

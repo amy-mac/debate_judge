@@ -14,7 +14,7 @@ class DebateJudge.Views.TournamentsIndex extends Backbone.View
 
   render: ->
     $(@el).html(@template())
-    @collection.each(@appendTournament)
+    @collection.each(@appendTournament, @)
     @
 
   attributes: ->
@@ -34,7 +34,7 @@ class DebateJudge.Views.TournamentsIndex extends Backbone.View
     rounds = new DebateJudge.Collections.Rounds @rounds.filter (round) =>
       (round.get 'tournament_id') == tourney.id
     view = new DebateJudge.Views.Tournament(model: tourney, collection: rounds)
-    $('#tournaments').append(view.render().el)
+    @$('#tournaments').append(view.render().el)
 
   openForm: (e) ->
     $('#new_tourney').toggleClass('hidden')

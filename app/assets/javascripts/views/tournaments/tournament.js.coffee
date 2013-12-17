@@ -7,7 +7,7 @@ class DebateJudge.Views.Tournament extends Backbone.View
     "click .list-group-item-heading": "unhideRounds"
 
   initialize: ->
-    @collection.on('add', @render, this)
+    @collection.on('sync', @render, this)
     @collection.on('sort', @render, this)
 
   render: ->
