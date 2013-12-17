@@ -1,4 +1,9 @@
-=@contention.get('contention')
-%div.text-right{ "data-id" => "#{@contention.id}" }
+%span.hide-on-edit
+  =@contention.get('contention')
+%div.text-right.hide-on-edit
   %span.glyphicon.glyphicon-pencil.text-muted
   %span.glyphicon.glyphicon-remove.text-muted
+%div.contention-editor.hidden
+  %textarea#edit-contention.form-control
+  %input#edit-contention-submit.btn.btn-default{ type: 'submit', value: 'Save'}
+  %button.btn.btn-default Cancel
