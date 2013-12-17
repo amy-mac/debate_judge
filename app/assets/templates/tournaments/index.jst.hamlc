@@ -1,27 +1,32 @@
-.row
-  .col-xs-12
-    .page-header
-      %h1 My Tournaments
-        %small 
-          %a{href: '#', id: 'tourney_add'} Add New
+- if gon.currentUser
+  .row
+    .col-xs-12
+      .page-header
+        %h1 My Tournaments
+          %small 
+            %a{href: '#', id: 'tourney_add'} Add New
 
-.row
-  .col-sm-12.col-md-8
-    %form#new_tourney.hidden.form-inline{ role: "form" }
-      .form-group
-        %input#new_tourney_tournament.form-control{type: 'text', name: 'tournament', placeholder: 'Tournament Name', required: true}
-      
-      .form-group
-        %input#new_tourney_school.form-control{type: 'text', name: 'school', placeholder: 'School, optional'}
-      
-      .form-group
-        %input#new_tourney_date.form-control{type: 'date', name: 'date', required: true}
-      
-      %input.btn.btn-default{type: 'submit', value: "Add"}
+  .row
+    .col-sm-12.col-md-8
+      %form#new_tourney.hidden.form-inline{ role: "form" }
+        .form-group
+          %input#new_tourney_tournament.form-control{type: 'text', name: 'tournament', placeholder: 'Tournament Name', required: true}
+        
+        .form-group
+          %input#new_tourney_school.form-control{type: 'text', name: 'school', placeholder: 'School, optional'}
+        
+        .form-group
+          %input#new_tourney_date.form-control{type: 'date', name: 'date', required: true}
+        
+        %input.btn.btn-default{type: 'submit', value: "Add"}
 
-.row
-  .col-xs-12.col-md-7
-    #tournaments.list-group
+  .row
+    .col-xs-12.col-md-7
+      #tournaments.list-group
 
-  .col-xs-12.col-md-4.col-md-offset-1
-    %h2 Recent Stuff
+    .col-xs-12.col-md-4.col-md-offset-1
+      %h2 Recent Stuff
+- else
+  .jumbotron
+    %h1 Welcome to Arbitr!
+    %p Tired of those messy flows to track your debates? Arbitr helps streamline the process.
