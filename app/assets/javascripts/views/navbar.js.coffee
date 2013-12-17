@@ -36,4 +36,4 @@ class DebateJudge.Views.Navbar extends Backbone.View
 
   tournamentsPage: (e) ->
     e.preventDefault()
-    page "/"
+    page "/tournaments"

@@ -13,6 +13,11 @@ $(document).ready ->
 
 page '/', ->
   $('#round_page').empty()
+  view = new DebateJudge.Views.Home()
+  $('#main').html(view.render().el)
+
+page '/tournaments', ->
+  $('#round_page').empty()
   @collection = new DebateJudge.Collections.Tournaments()
   @rounds = new DebateJudge.Collections.Rounds()
   @rounds.fetch()
