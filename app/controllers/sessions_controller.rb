@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       sign_in(user)
-      respond_with @user, :location => '/', :notice => "Login succesful."
+      respond_with @user, :location => '/tournaments', :notice => "Login succesful."
     else
       render json: {status: 'error'}, status: 500
     end
