@@ -9,6 +9,8 @@ gem 'unicorn', '4.7.0'
 gem 'pg'
 gem 'backbone-on-rails'
 gem 'gon'
+gem 'haml-rails'
+gem 'haml_coffee_assets'
 
 group :development, :test do
   gem 'pry-rails'
@@ -33,7 +35,6 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'bootstrap-sass', '~> 3.0.3.0'
-
   gem 'execjs'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -41,9 +42,6 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
-gem 'haml-rails'
-gem 'haml_coffee_assets'
 
 gem 'jquery-rails'
 
