@@ -1,11 +1,12 @@
 class DebateJudge.Views.RoundsIndex extends Backbone.View
   template: JST['rounds/index']
-  className: 'list-group-text'
+  className: 'list-group-text hidden'
   id: "rounds"
 
   events:
+    'click .roundAdd': 'openForm'
     'submit #new_round': 'addRound'
-    'click #delete_tourney': 'deleteTournament'
+    'click .delete_tourney': 'deleteTournament'
     'click .open-round': 'openRound'
 
   initialize: (opts) ->
@@ -34,5 +35,9 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
     @tournament.destroy()
 
   openRound: (e) ->
+    e.preventDefault()
     round_id = $(e.currentTarget).data('id')
     page "/rounds/#{round_id}", round_id
+
+  openForm: (e) ->
+    @$('#new_round').removeClass('hidden')

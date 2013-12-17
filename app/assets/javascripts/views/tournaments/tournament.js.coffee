@@ -17,9 +17,10 @@ class DebateJudge.Views.Tournament extends Backbone.View
     $(@el).append(view.render().el)
     @
 
-  unhideRounds: ->
+  unhideRounds: (e) ->
+    e.preventDefault()
     # $(@el).toggleClass('active')
-    $(@el).find("#rounds").toggleClass('hidden')
+    @$("#rounds").removeClass('hidden')
 
   deleteTournament: ->
     @model.destroy()

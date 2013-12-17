@@ -34,28 +34,22 @@
             %li
               %a.open-round{ href: "#", "data-id" => "#{round.id}" } Round
                 = round.get('round_num')
-
-.dropdown.text-right
+.text-right
   %ul.list-inline
     %li
-      %a#roundAdd.dropdown-toggle{ href: "#", "data-toggle" => "dropdown" } New Round
-      .dropdown-menu.pull-right.text-left{ role: "menu", "aria-labelledby" => "roundAdd" }
-        .modal-header
-          %h4.modal-title Create Round
-        .modal-body
-          %form#new_round{ role: "form" }
-            .form-group
-              %label{ for: "event" } Event
-              %select#new_round_event.form-control{ name: "event", required: true }
-                %option Lincoln Douglas
-                %option Parli
-                %option Policy
-                %option Public Forum
-            
-            .form-group
-              %label{ for: "round_num" } Round Number
-              %input#new_round_num.form-control{type: 'number', name: 'round_num', min: "1", max: "15", required: true}
-            
-            %input.btn.btn-default{type: 'submit', value: "Create"}
+      %a.roundAdd{ href: "#" } New Round
     %li
-      %a#delete_tourney{ href: "#" } Delete Tournament
+      %a.delete_tourney{ href: "#" } Delete Tournament
+
+%form#new_round.hidden.form-inline.text-right{ role: "form" }
+  .form-group
+    %select#new_round_event.form-control{ name: "event", required: true }
+      %option Lincoln Douglas
+      %option Parli
+      %option Policy
+      %option Public Forum
+  
+  .form-group
+    %input#new_round_num.form-control.col-md-3{type: 'number', name: 'round_num', min: "1", max: "15", placeholder: "Round", required: true}
+  
+  %input.btn.btn-default{type: 'submit', value: "Create"}

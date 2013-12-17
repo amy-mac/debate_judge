@@ -33,5 +33,4 @@ class DebateJudge.Views.Contention extends Backbone.View
   editContention: (e) ->
     e.preventDefault()
     newValue = @$('.contention-editor textarea').val()
-    # @model.set contention: newValue
     @model.save contention: newValue

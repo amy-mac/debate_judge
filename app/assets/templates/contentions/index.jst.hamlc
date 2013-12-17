@@ -1,4 +1,4 @@
-%h4= @speech
+%h4.text-center= @speech
 %div.speech-contention-area
   %div.speech-contentions
     .contentions

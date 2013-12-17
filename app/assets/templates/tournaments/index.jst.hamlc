@@ -6,7 +6,7 @@
           %a{href: '#', id: 'tourney_add'} Add New
 
 .row
-  .col-sm-12.col-md-8
+  .col-sm-12
     %form#new_tourney.hidden.form-inline{ role: "form" }
       .form-group
         %input#new_tourney_tournament.form-control{type: 'text', name: 'tournament', placeholder: 'Tournament Name', required: true}
