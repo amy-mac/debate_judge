@@ -1,6 +1,9 @@
 class DebateJudge.Views.Round extends Backbone.View
   template: JST['rounds/round']
 
+  events:
+    'click .glyphicon-remove': 'deleteRound'
+
   initialize: ->
     @model.on('reset', @render, this)
     @contentions = new DebateJudge.Collections.Contentions @collection.where round_id: @model.id
@@ -56,3 +59,11 @@ class DebateJudge.Views.Round extends Backbone.View
       (contentions.get 'speech_type') == speech
     view = new DebateJudge.Views.ContentionsIndex(collection: contentions, model: @model, speech: speech)
     @$("#speech-area").append(view.render().$el)
+
+  deleteRound: (e) ->
+    if confirm "Are you sure you want to delete this round?"
+      @model.destroy
+        success: (model, response) ->
+          page '/tournaments'
+        error: (model, response) ->
+          alert "Something went wrong"

@@ -3,7 +3,7 @@
     %strong= @round.get('event') 
       &mdash; Round
       = @round.get('round_num')
-
+    %small.text-muted.glyphicon.glyphicon-remove
 %div#speech-wrapper
 
   %div#speech-area
