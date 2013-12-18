@@ -7,8 +7,8 @@
   %a.navbar-brand{ href: "#" } Arbitr
 %div.collapse.navbar-collapse
   %ul.nav.navbar-nav.navbar-right
-    %li
-      %a{ href: "#about" } About
+    / %li
+    /   %a{ href: "#about" } About
     %li
       %a{ href: '#', id: 'sign_up_link' } Sign Up
     -if gon.currentUser
