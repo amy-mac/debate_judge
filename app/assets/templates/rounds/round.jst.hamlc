@@ -1,20 +1,16 @@
-%script
-  $("#runner").runner({
-    countdown: true,
-    startAt: 5 * 60 * 1000,
-    stopAt: 0,
-    milliseconds: false
-  });
 .row#round-header
   %div.col-md-4
     %strong= @round.get('event') 
       &mdash; Round
       = @round.get('round_num')
     %small.text-muted.glyphicon.glyphicon-remove
-  %div#timer.col-md-4.text-center
-    %button#start-timer.btn.btn-primary.btn-xs Start
+  %div#timer.col-md-5.text-center
+    %button#toggle-timer.btn.btn-primary.btn-xs Start
     %span#runner
-    %button#pause-timer.btn.btn-default.btn-xs Pause
+    %span#set-timer-input.form-inline
+      %input.input-sm.form-control{ type: "number", placeholder: "Min." }
+    %button#set-timer.btn.btn-default.btn-xs Set
+    %button#reset-timer.btn.btn-default.btn-xs.hidden Reset
 
 %div#speech-wrapper
 

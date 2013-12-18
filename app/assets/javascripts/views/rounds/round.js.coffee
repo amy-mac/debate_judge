@@ -3,8 +3,9 @@ class DebateJudge.Views.Round extends Backbone.View
 
   events:
     'click .glyphicon-remove': 'deleteRound'
-    'click #start-timer': 'startTimer'
-    'click #pause-timer': 'pauseTimer'
+    'click #toggle-timer': 'toggleTimer'
+    'click #set-timer': 'setTimer'
+    'click #reset-timer': 'resetTimer'
 
   initialize: ->
     @model.on('reset', @render, this)
@@ -54,6 +55,7 @@ class DebateJudge.Views.Round extends Backbone.View
     $(@el).html(@template(round: @model, speeches: @speeches))
     for speech in @speeches
       @appendSpeech(speech)
+    # @timerFunction 7
     @
 
   appendSpeech: (speech) =>
@@ -70,11 +72,26 @@ class DebateJudge.Views.Round extends Backbone.View
         error: (model, response) ->
           alert "Something went wrong"
 
-  startTimer: (e) ->
-    console.log "Timer Starting"
-    $('#runner').runner('start')
+  toggleTimer: (e) ->
+    $('#runner').runner('toggle')
 
-  pauseTimer: (e) ->
-    console.log "Timer pausing"
-    $('#runner').runner('stop')
+  timerFunction: (value) ->
+    @$("#set-timer-input").addClass('hidden')
+    @$("#runner").removeClass('hidden')
+    @$("#runner").runner
+      countdown: true
+      startAt: value * 60 * 1000
+      stopAt: 0
+      milliseconds: false
 
+  setTimer: ->
+    newValue = @$("#set-timer-input input").val()
+    @timerFunction(newValue)
+    @$('#set-timer').addClass('hidden')
+    @$('#reset-timer').removeClass('hidden')
+
+  resetTimer: ->
+    @$("#runner").addClass("hidden")
+    @$("#set-timer-input").removeClass('hidden')
+    @$('#set-timer').removeClass('hidden')
+    @$('#reset-timer').addClass('hidden')
