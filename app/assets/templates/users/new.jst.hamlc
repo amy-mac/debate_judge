@@ -3,7 +3,7 @@
     %h1 Sign Up
 
 .row
-  .col-xs-12
+  .col-xs-12.col-md-6
     %form#new_user{ role: "form" }
       .form-group
         %label{ for: "name" } Name
