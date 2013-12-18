@@ -20,10 +20,10 @@ page '/tournaments', ->
   $('#round_page').empty()
   @collection = new DebateJudge.Collections.Tournaments()
   @rounds = new DebateJudge.Collections.Rounds()
-  @rounds.fetch()
-  @collection.fetch().then =>
-    view = new DebateJudge.Views.TournamentsIndex(collection: @collection, rounds: @rounds)
-    $('#main').html(view.render().el)
+  @rounds.fetch().then =>
+    @collection.fetch().then =>
+      view = new DebateJudge.Views.TournamentsIndex(collection: @collection, rounds: @rounds)
+      $('#main').html(view.render().el)
 
 page '/rounds/:id', (ctx) ->
   @userContentions = new DebateJudge.Collections.Contentions()
