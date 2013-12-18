@@ -1,9 +1,10 @@
-%span.hide-on-edit
+%div.hide-on-edit
   -if @contention.get('refuted')
     %span.label.label-danger.pull-right Refuted
   -else
     %span.label.label-success.pull-right Unrefuted
-  =@contention.get('contention')
+  %div.markdown
+
 %div.text-right.hide-on-edit
   %span.glyphicon.glyphicon-thumbs-down.text-muted
   %span.glyphicon.glyphicon-pencil.text-muted

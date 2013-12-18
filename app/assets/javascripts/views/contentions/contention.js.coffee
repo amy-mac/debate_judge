@@ -16,6 +16,7 @@ class DebateJudge.Views.Contention extends Backbone.View
   render: ->
     $(@el).html(@template(contention: @model))
     $(@el).attr("data-id", @model.id)
+    @applyMarkdown(@model.get('contention'))
     @
 
   deleteContention: (e) ->
@@ -39,3 +40,6 @@ class DebateJudge.Views.Contention extends Backbone.View
   refuteContention: (e) ->
     e.preventDefault()
     @model.refuteContention()
+
+  applyMarkdown: (value) ->
+    @$('.markdown').html(markdown.toHTML(value))

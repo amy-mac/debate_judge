@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require markdown
 //= require hamlcoffee
 //= require lodash
 //= require page
