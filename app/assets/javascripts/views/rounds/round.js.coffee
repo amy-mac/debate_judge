@@ -3,6 +3,8 @@ class DebateJudge.Views.Round extends Backbone.View
 
   events:
     'click .glyphicon-remove': 'deleteRound'
+    'click #start-timer': 'startTimer'
+    'click #pause-timer': 'pauseTimer'
 
   initialize: ->
     @model.on('reset', @render, this)
@@ -67,3 +69,12 @@ class DebateJudge.Views.Round extends Backbone.View
           page '/tournaments'
         error: (model, response) ->
           alert "Something went wrong"
+
+  startTimer: (e) ->
+    console.log "Timer Starting"
+    $('#runner').runner('start')
+
+  pauseTimer: (e) ->
+    console.log "Timer pausing"
+    $('#runner').runner('stop')
+

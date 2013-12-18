@@ -1,29 +1,21 @@
-%div#round-header
-  %div
+%script
+  $("#runner").runner({
+    countdown: true,
+    startAt: 5 * 60 * 1000,
+    stopAt: 0,
+    milliseconds: false
+  });
+.row#round-header
+  %div.col-md-4
     %strong= @round.get('event') 
       &mdash; Round
       = @round.get('round_num')
     %small.text-muted.glyphicon.glyphicon-remove
+  %div#timer.col-md-4.text-center
+    %button#start-timer.btn.btn-primary.btn-xs Start
+    %span#runner
+    %button#pause-timer.btn.btn-default.btn-xs Pause
+
 %div#speech-wrapper
 
   %div#speech-area
-
-/ Edit Contention Modal
-/ .modal.fade#myModal{ tabindex: "-1", role: "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => true }
-/   .modal-dialog
-/     .modal-content
-/       .modal-header
-/         %button.close{ type: "button", "data-dismiss" => "modal", "aria-hidden" => true} &times;
-/         %h4.modal-title#myModalLabel Sign In
-/       .modal-body
-/         = form_tag("/sessions", method: "post") do
-/           .form-group
-/             = label_tag(:email, "Email")
-/             = email_field_tag(:email, "", :autofocus => true, class: "form-control", required: true)
-
-/           .form-group
-/             = label_tag(:password, "Password")
-/             = password_field_tag(:password, "", class: "form-control", required: true)
-
-/           %button.btn.btn-default{ type: "button", "data-dismiss" => "modal" } Cancel
-/           %button.btn.btn-primary{ type: "submit" } Sign In
