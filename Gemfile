@@ -11,6 +11,7 @@ gem 'backbone-on-rails'
 gem 'gon'
 gem 'haml-rails'
 gem 'haml_coffee_assets'
+gem 'redcarpet'
 
 group :development, :test do
   gem 'pry-rails'
