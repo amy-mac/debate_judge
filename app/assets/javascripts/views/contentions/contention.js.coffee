@@ -5,6 +5,7 @@ class DebateJudge.Views.Contention extends Backbone.View
   events:
     'click .glyphicon-remove': 'deleteContention'
     'click .glyphicon-pencil': 'openEditor'
+    'click .glyphicon-thumbs-down': 'refuteContention'
     'click .contention-editor button': 'closeEditor'
     'click #edit-contention-submit': 'editContention'
 
@@ -33,5 +34,8 @@ class DebateJudge.Views.Contention extends Backbone.View
 
   editContention: (e) ->
     e.preventDefault()
-    newValue = @$('.contention-editor textarea').val()
-    @model.save contention: newValue
+    @model.editContention(@$('.contention-editor textarea').val())
+
+  refuteContention: (e) ->
+    e.preventDefault()
+    @model.refuteContention()

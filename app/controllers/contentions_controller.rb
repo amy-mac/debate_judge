@@ -25,7 +25,7 @@ class ContentionsController < ApplicationController
   end
 
   def update
-    respond_with Contention.update(params[:id], params.slice(:contention))
+    respond_with Contention.update(params[:id], params.slice(:contention, :refuted))
   end
 
   def destroy
