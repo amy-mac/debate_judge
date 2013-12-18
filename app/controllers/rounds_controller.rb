@@ -19,10 +19,10 @@ class RoundsController < ApplicationController
   end
 
   def create
-    round = Round.create(params[:round])
+    round = Round.new(params[:round])
+    Tournament.find(params[:tournament_id]).rounds << round
 
     if round.errors.empty?
-      Tournament.find(params[:tournament_id]).rounds << round
       respond_with round
     else
       round.destroy()
