@@ -5,7 +5,7 @@ class DebateJudge.Views.Tournament extends Backbone.View
 
   events:
     "click .list-group-item-heading": "unhideRounds"
-    "click": (e) -> e.preventDefault()
+    "click #new_round_num": (e) -> e.preventDefault()
 
   render: ->
     $(@el).html(@template(tournament: @model, rounds: @collection))
