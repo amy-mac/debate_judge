@@ -39,7 +39,7 @@ body {
   padding: 0;
   overflow-x: auto;
   overflow-y: hidden;
-  min-height: 500px;
+  min-height: 570px;
   height: 100%;
   margin-right: 0;
 }
@@ -52,7 +52,7 @@ body {
 }
 
 .speech {
-  width: 250px;
+  width: 260px;
   float: left;
   border: 1px solid #000;
   margin: 0 5px;
@@ -79,6 +79,10 @@ body {
   padding: 5px;
 }
 
+.contention li {
+  margin-left: -10px;
+}
+
 .contention textarea {
   border: none;
   width: 100%;
@@ -93,4 +97,8 @@ body {
 
 .contention .glyphicon:empty {
  width: 1.2em; 
+}
+
+.refute {
+  cursor: pointer;
 }

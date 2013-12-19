@@ -1,12 +1,11 @@
 %div.hide-on-edit
   -if @contention.get('refuted')
-    %span.label.label-danger.pull-right Refuted
+    %span.label.label-success.pull-right.refute Refuted
   -else
-    %span.label.label-success.pull-right Unrefuted
+    %span.label.label-danger.pull-right.refute Unrefuted
   %div.markdown
 
 %div.text-right.hide-on-edit
-  %span.glyphicon.glyphicon-thumbs-down.text-muted
   %span.glyphicon.glyphicon-pencil.text-muted
   %span.glyphicon.glyphicon-remove.text-muted
 %div.contention-editor.hidden

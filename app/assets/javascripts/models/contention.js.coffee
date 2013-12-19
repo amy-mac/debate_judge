@@ -6,4 +6,7 @@ class DebateJudge.Models.Contention extends Backbone.Model
     @save contention: value
 
   refuteContention: ->
-    @save refuted: true
+    if @get('refuted') == false
+      @save refuted: true
+    else
+      @save refuted: false

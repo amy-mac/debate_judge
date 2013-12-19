@@ -4,7 +4,7 @@
       &mdash; Round
       = @round.get('round_num')
     %small.text-muted.glyphicon.glyphicon-remove
-  %div#timer.col-md-5.text-center
+  %div#timer.col-md-4.text-center
     %button#toggle-timer.btn.btn-primary.btn-xs Start
     %span#runner
     %span#set-timer-input.form-inline

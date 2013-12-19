@@ -55,7 +55,6 @@ class DebateJudge.Views.Round extends Backbone.View
     $(@el).html(@template(round: @model, speeches: @speeches))
     for speech in @speeches
       @appendSpeech(speech)
-    # @timerFunction 7
     @
 
   appendSpeech: (speech) =>
@@ -83,7 +82,9 @@ class DebateJudge.Views.Round extends Backbone.View
       startAt: value * 60 * 1000
       stopAt: 0
       milliseconds: false
-
+    .on "runnerFinish", (eventObject, info) ->
+      $("#runner").css('color', 'red')
+  
   setTimer: ->
     newValue = @$("#set-timer-input input").val()
     @timerFunction(newValue)
@@ -95,3 +96,4 @@ class DebateJudge.Views.Round extends Backbone.View
     @$("#set-timer-input").removeClass('hidden')
     @$('#set-timer').removeClass('hidden')
     @$('#reset-timer').addClass('hidden')
+    $('#runner').css('color', 'black')

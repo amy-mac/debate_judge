@@ -5,7 +5,7 @@ class DebateJudge.Views.Contention extends Backbone.View
   events:
     'click .glyphicon-remove': 'deleteContention'
     'click .glyphicon-pencil': 'openEditor'
-    'click .glyphicon-thumbs-down': 'refuteContention'
+    'click .refute': 'refuteContention'
     'click .contention-editor button': 'closeEditor'
     'click #edit-contention-submit': 'editContention'
 
