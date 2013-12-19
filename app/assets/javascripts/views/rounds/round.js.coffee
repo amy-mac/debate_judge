@@ -71,9 +71,11 @@ class DebateJudge.Views.Round extends Backbone.View
         error: (model, response) ->
           alert "Something went wrong"
 
+  # Start and Stop Timer
   toggleTimer: (e) ->
     $('#runner').runner('toggle')
 
+  # Initializes the timer function
   timerFunction: (value) ->
     @$("#set-timer-input").addClass('hidden')
     @$("#runner").removeClass('hidden')
@@ -85,12 +87,14 @@ class DebateJudge.Views.Round extends Backbone.View
     .on "runnerFinish", (eventObject, info) ->
       $("#runner").css('color', 'red')
   
+  # Sets the value for the timer
   setTimer: ->
     newValue = @$("#set-timer-input input").val()
     @timerFunction(newValue)
     @$('#set-timer').addClass('hidden')
     @$('#reset-timer').removeClass('hidden')
 
+  # Opens up the set timer form
   resetTimer: ->
     @$("#runner").addClass("hidden")
     @$("#set-timer-input").removeClass('hidden')
