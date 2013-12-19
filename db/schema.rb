@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131213214354) do
+ActiveRecord::Schema.define(:version => 20131219023457) do
 
   create_table "contentions", :force => true do |t|
     t.string   "speech_type"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20131213214354) do
     t.integer  "round_id"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
+    t.string   "refuted_by"
   end
 
   create_table "rounds", :force => true do |t|
