@@ -5,6 +5,6 @@
     %div.contention-composer.hidden
       %div.contention
         %textarea#new-contention.form-control
-      %input#new-contention-submit.btn.btn-default{ type: 'submit', value: 'Add' }
-      %button.btn.btn-default Cancel
+      %input#new-contention-submit.btn.btn-default.btn-sm{ type: 'submit', value: 'Add' }
+      %button.btn.btn-default.btn-sm Cancel
   %a.open-composer.text-muted{ href: "#" } Add contention

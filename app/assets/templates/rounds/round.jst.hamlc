@@ -5,7 +5,7 @@
       = @round.get('round_num')
     %small.text-muted.glyphicon.glyphicon-remove
   %div#timer.col-md-4.text-center
-    %button#toggle-timer.btn.btn-primary.btn-xs Start
+    %button#toggle-timer.btn.btn-default.btn-xs Start
     %span#runner
     %span#set-timer-input.form-inline
       %input.input-sm.form-control{ type: "number", placeholder: "Min." }

@@ -10,5 +10,5 @@
   %span.glyphicon.glyphicon-remove.text-muted
 %div.contention-editor.hidden
   %textarea#edit-contention.form-control
-  %input#edit-contention-submit.btn.btn-default{ type: 'submit', value: 'Save'}
-  %button.btn.btn-default Cancel
+  %input#edit-contention-submit.btn.btn-default.btn-sm{ type: 'submit', value: 'Save'}
+  %button.btn.btn-default.btn-sm Cancel
