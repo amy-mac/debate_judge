@@ -11,6 +11,8 @@ body {
   height: 100%;
 }
 
+// Navbar
+
 .navbar {
   min-height: 0px;
   height: 45px;
@@ -58,12 +60,15 @@ body {
   max-height: 100%;
   margin-right: -999em;
   margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .speech {
   width: 260px;
   float: left;
   border: 1px solid #000;
+  border-radius: 5px;
   margin: 0 5px;
   padding: 4px;
   max-height: 100%;
@@ -101,6 +106,10 @@ body {
 
 .contention .glyphicon, #round-header .glyphicon {
   cursor: pointer;
+}
+
+.contention .glyphicon:hover, #round-header .glyphicon:hover {
+  color: #7C7B7B;
 }
 
 .contention .glyphicon:empty {
