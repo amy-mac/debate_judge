@@ -8,7 +8,6 @@
 }
 
 body { 
-  padding-top: 55px;
   height: 100%;
 }
 
@@ -17,12 +16,22 @@ body {
   height: 45px;
 }
 
+.navbar-nav > li > a {
+  padding-top: 15px;
+  padding-bottom: 9px;
+}
+
 // Round pages
 
 #round_page {
   width: 100%;
   margin: 0;
   padding: 0;
+}
+
+#round_page .row {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 #round-header {
@@ -84,9 +93,8 @@ body {
 }
 
 .contention textarea {
-  border: none;
   width: 100%;
-  min-height: 70px;
+  min-height: 80px;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -101,4 +109,13 @@ body {
 
 .refute {
   cursor: pointer;
+}
+
+// Media Queries
+
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 9px;
+  }
 }
