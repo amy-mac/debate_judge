@@ -9,9 +9,18 @@
   %ul.nav.navbar-nav.navbar-right
     / %li
     /   %a{ href: "#about" } About
-    %li
-      %a{ href: '#', id: 'sign_up_link' } Sign Up
     -if gon.currentUser
+      %li.dropdown
+        %a.dropdown-toggle{ href: "#", "data-toggle" => "dropdown" } Rounds
+          %b.caret
+        %ul.dropdown-menu
+          %li
+            %a
+              %strong.text-muted Recent Rounds
+          %li.divider
+          - for round in gon.userRounds
+            %li
+              %a.round-link{ href: "/rounds/#{round.id}" }="#{round.event}, Round #{round.round_num}"
       %li.dropdown
         %a.dropdown-toggle{ href: "#", "data-toggle" => "dropdown" } Account
           %b.caret
@@ -24,5 +33,7 @@
           %li
             %a#signOut{ href: "#" } Sign Out
     -else
+      %li
+        %a{ href: '#', id: 'sign_up_link' } Sign Up
       %li
         %a{ href: '#', id: 'sign_in_link', "data-toggle": "modal", "data-target": "#myModal" } Sign In

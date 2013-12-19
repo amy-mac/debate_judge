@@ -11,11 +11,20 @@ body {
   height: 100%;
 }
 
+.logo {
+  font-family: 'fff_tusjbold';
+}
+
 // Navbar
 
 .navbar {
   min-height: 0px;
   height: 45px;
+}
+
+.navbar-brand {
+  font-family: 'fff_tusjbold';
+  font-size: 32px;
 }
 
 .navbar-nav > li > a {
@@ -67,11 +76,14 @@ body {
 .speech {
   width: 260px;
   float: left;
-  border: 1px solid #000;
+  border: 1px solid #C9C4C4;
   border-radius: 5px;
   margin: 0 5px;
   padding: 4px;
   max-height: 100%;
+  -webkit-box-shadow: 2px 2px 5px #CCC;
+  -moz-box-shadow: 2px 2px 5px #CCC;
+  box-shadow: 2px 2px 5px #CCC;
 }
 
 .speech-contentions {
