@@ -29,5 +29,5 @@
       - if gon.userRounds? then for round in gon.userRounds
         %li
           %a.round-link{ href: "/rounds/#{round.id}" }="#{round.event}, Round #{round.round_num}"
-      - if gon.userRounds.length is 0
+      - if not gon.userRounds? or gon.userRounds.length is 0
         %li.text-muted No recent rounds available.
