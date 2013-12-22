@@ -1,4 +1,3 @@
 .jumbotron
-  %h1 Welcome to 
-    %span.logo Arbitr
+  %h1.logo Welcome to Arbitr
   %p A simple and intuitive way to flow a debate round.
