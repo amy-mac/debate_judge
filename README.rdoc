@@ -1,3 +1,5 @@
 == Arbitr
 
-More info coming soon.
+An app to help track debate round flows at debate tournaments. Can be used by both judges and those participating.
+
+There is a timer for tracking each speech, and a way to mark refutations.
