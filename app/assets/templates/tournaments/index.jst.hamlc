@@ -26,6 +26,8 @@
   .col-xs-12.col-md-4.col-md-offset-1
     %h3 Recent Rounds
     %ul
-      -for round in gon.userRounds
+      - if gon.userRounds? then for round in gon.userRounds
         %li
           %a.round-link{ href: "/rounds/#{round.id}" }="#{round.event}, Round #{round.round_num}"
+      - if gon.userRounds.length is 0
+        %li.text-muted No recent rounds available.

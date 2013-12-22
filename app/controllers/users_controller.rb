@@ -15,6 +15,8 @@ class UsersController < ApplicationController
 
     if @user.errors.empty?
       sign_in(@user)
+      gon.currentUser = current_user
+      gon.userRounds = current_user.rounds.last(5)
       respond_with @user
     else
       render json: {status: 'error'}, status: 500

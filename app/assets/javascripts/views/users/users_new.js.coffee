@@ -32,4 +32,6 @@ class DebateJudge.Views.UsersNew extends Backbone.View
     user = new DebateJudge.Models.User @attributes()
     user.save null,
       success: (data) ->
-        console.log(data)
+        page '/tournaments'
+      error: ->
+        alert "Oops, something went wrong!"
