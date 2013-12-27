@@ -10,20 +10,14 @@
     / %li
     /   %a{ href: "#about" } About
     -if gon.currentUser?
-      %li.dropdown
-        %a.dropdown-toggle{ href: "#", "data-toggle" => "dropdown" } Rounds
-          %b.caret
-        %ul.dropdown-menu
-          %li
-            %a
-              %strong.text-muted Recent Rounds
-          %li.divider
-          - if @navRecent? then for round in @navRecent.models
-            %li
-              %a.round-link{ href: "/rounds/#{round.id}" }="#{round.get('event')}, Round #{round.get('round_num')}"
-          - else
-            %li
-              %a No recent rounds.
+      / %li.dropdown
+      /   %a.dropdown-toggle{ href: "#", "data-toggle" => "dropdown" } Rounds
+      /     %b.caret
+      /   %ul.dropdown-menu
+      /     %li
+      /       %a
+      /         %strong.text-muted Recent Rounds
+      /     %li.divider
       %li.dropdown
         %a.dropdown-toggle{ href: "#", "data-toggle" => "dropdown" } Account
           %b.caret
