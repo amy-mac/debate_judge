@@ -5,6 +5,7 @@ window.DebateJudge =
   Routers: {}
   initialize: ->
     page()
+
     nav = new DebateJudge.Views.Navbar()
     $('#navbar').html(nav.render().el)
 
@@ -12,9 +13,12 @@ $(document).ready ->
   DebateJudge.initialize()
 
 page '/', ->
-  $('#round_page').empty()
-  view = new DebateJudge.Views.Home()
-  $('#main').html(view.render().el)
+  if gon.currentUser?
+    page '/tournaments'
+  else
+    $('#round_page').empty()
+    view = new DebateJudge.Views.Home()
+    $('#main').html(view.render().el)
 
 page '/tournaments', ->
   $('#round_page').empty()

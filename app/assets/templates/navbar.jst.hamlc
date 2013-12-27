@@ -18,9 +18,12 @@
             %a
               %strong.text-muted Recent Rounds
           %li.divider
-          - if gon.userRounds? then for round in gon.userRounds
+          - if @navRecent? then for round in @navRecent.models
             %li
-              %a.round-link{ href: "/rounds/#{round.id}" }="#{round.event}, Round #{round.round_num}"
+              %a.round-link{ href: "/rounds/#{round.id}" }="#{round.get('event')}, Round #{round.get('round_num')}"
+          - else
+            %li
+              %a No recent rounds.
       %li.dropdown
         %a.dropdown-toggle{ href: "#", "data-toggle" => "dropdown" } Account
           %b.caret
