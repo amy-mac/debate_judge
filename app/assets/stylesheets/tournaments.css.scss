@@ -15,17 +15,16 @@ body {
   font-family: 'fff_tusjbold';
 }
 
-.welcome {
-  margin-top: 1em;
-  margin-bottom: 1.75em;
+img {
+  max-width: 100%;
 }
 
-.welcome h1 {
-  font-size: 4em;
-}
+// Homepage
 
-.buttons {
-  margin-bottom: 4em;
+.jumbotron {
+  margin-top: -1em;
+  background-color: #292929;
+  color: #FFF;
 }
 
 // Navbar
