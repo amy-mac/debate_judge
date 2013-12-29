@@ -24,8 +24,8 @@
         %ul.dropdown-menu
           %li
             %a#myTournaments{ href: "#" } My Tournaments
-          %li
-            %a#editAccount{ href: "#" } Edit Account
+          / %li
+          /   %a#editAccount{ href: "#" } Edit Account
           %li.divider
           %li
             %a#signOut{ href: "#" } Sign Out
