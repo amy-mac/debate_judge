@@ -15,7 +15,7 @@
         %input#new_tourney_school.form-control{type: 'text', name: 'school', placeholder: 'School, optional'}
       
       .form-group
-        %input#new_tourney_date.form-control{type: 'date', name: 'date', required: true}
+        %input#new_tourney_date.form-control{type: 'date', name: 'date', required: true, placeholder: 'YYYY-MM-DD' }
       
       %input.btn.btn-default{type: 'submit', value: "Add"}
 
