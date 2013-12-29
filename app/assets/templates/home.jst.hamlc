@@ -1,3 +1,17 @@
-.jumbotron
-  %h1.logo Welcome to Arbitr
-  %p A simple and intuitive way to flow a debate round.
+.row.welcome
+  .col-xs-12.text-center
+    %h1.logo Welcome to Arbitr
+    %p.lead A simple and intuitive way to flow a debate round.
+
+.row.buttons
+  .col-xs-12.text-center
+    %button.btn.btn-default.btn-lg.sign_up_link Sign Up
+    %button.btn.btn-default.btn-lg.try_demo{ "data-toggle": "modal", "data-target": "#myModal" } Try Demo
+
+.row.well
+  .col-xs.12.col-md-4
+    %img.img-thumbnail{ src: "assets/arbitr_lg.jpg", width: '300px' }
+
+  .col-xs.12.col-md-8
+    %h1 Tired of messy debate flows?
+    %p Arbitr makes it easier to track debate flows by providing organized ready-made layouts for Lincoln Douglas, Parli, Policy, and Public Forum events.
