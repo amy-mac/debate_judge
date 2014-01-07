@@ -9,9 +9,9 @@ class DebateJudge.Views.ContentionsIndex extends Backbone.View
 
   initialize: (opts) ->
     @speech = opts.speech
-    @collection.on 'reset', @render,this
-    @collection.on 'add', @render, this
-    @collection.on 'remove', @render, @
+    @listenTo @collection, 'reset', @render
+    @listenTo @collection, 'add', @appendContention
+    @listenTo @collection, 'remove', @render
 
   render: ->
     $(@el).html(@template(speech: @speech))

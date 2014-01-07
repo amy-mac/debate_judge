@@ -11,7 +11,7 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
 
   initialize: (opts) ->
     @tournament = opts.tournament
-    @collection.on('sort', @render, this)
+    @listenTo @collection, 'sort', @render
 
   render: ->
     @filterEvents()

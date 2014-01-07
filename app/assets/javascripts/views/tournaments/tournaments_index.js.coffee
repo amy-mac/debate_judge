@@ -8,8 +8,8 @@ class DebateJudge.Views.TournamentsIndex extends Backbone.View
     'click #tourney_add': 'openForm'
 
   initialize: (opts) ->
-    @collection.on 'sort', @render, this
-    @collection.on 'remove', @render, this
+    @listenTo @collection, 'sort', @render
+    @listenTo @collection, 'remove', @render
     @rounds = opts.rounds
     @recentRounds()
 
