@@ -4,6 +4,7 @@ class DebateJudge.Views.Home extends Backbone.View
   events:
     'click .sign_up_link': 'signUpPage'
     'click .try_demo': 'tryDemo'
+    'click #myModal > .cancel': 'clearFields'
 
   render: ->
     $(@el).html(@template())
@@ -17,3 +18,8 @@ class DebateJudge.Views.Home extends Backbone.View
     e.preventDefault()
     $('#email').val('test@amy-mac.com')
     $('#password').val('foobarbaz')
+
+  clearFields: (e) ->
+    e.preventDefault()
+    $('#email').val('')
+    $('#password').val('')
