@@ -49,7 +49,7 @@ class DebateJudge.Views.Round extends Backbone.View
           'Third Affirmative'
         ]
       else
-        @speeches = ['Aff1', 'Neg1', 'Aff2', 'Neg2', 'Aff3', 'Neg3']
+        @speeches = ['Aff1', 'Neg1', 'Aff2', 'Neg2', 'Neg3', 'Aff3']
 
   render: ->
     $(@el).html(@template(round: @model, speeches: @speeches))
