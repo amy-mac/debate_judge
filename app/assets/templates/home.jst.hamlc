@@ -3,8 +3,8 @@
     %h1.logo Welcome to Arbitr
     %p A simple and intuitive way to flow a debate round.
     %p
-      %button.btn.btn-success.btn-lg.sign_up_link Sign Up
-      %button.btn.btn-info.btn-lg.try_demo{ "data-toggle": "modal", "data-target": "#myModal" } Try Demo
+      %button.btn.btn-default.btn-lg.sign_up_link Sign Up
+      %button.btn.btn-default.btn-lg.try_demo{ "data-toggle": "modal", "data-target": "#myModal" } Try Demo
 
 .container
   .row
