@@ -7,7 +7,7 @@ class DebateJudge.Views.Contention extends Backbone.View
     'click .glyphicon-pencil': 'openEditor'
     'click .refute': 'refuteContention'
     'click .contention-editor button': 'closeEditor'
-    'click #edit-contention-submit': 'editContention'
+    'click .edit-contention-submit': 'editContention'
 
   initialize: ->
     @model.on 'reset', @render, @

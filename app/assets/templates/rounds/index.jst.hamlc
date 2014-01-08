@@ -41,15 +41,15 @@
     %li
       %a.delete_tourney{ href: "#" } Delete Tournament
 
-%form#new_round.hidden.form-inline.text-right{ role: "form" }
+%form.new_round.hidden.form-inline.text-right{ role: "form" }
   .form-group
-    %select#new_round_event.form-control{ name: "event", required: true }
+    %select.new_round_event.form-control{ name: "event", required: true }
       %option Lincoln Douglas
       %option Parli
       %option Policy
       %option Public Forum
   
   .form-group
-    %input#new_round_num.form-control.col-md-3{type: 'number', name: 'round_num', min: "1", max: "15", placeholder: "Round", required: true}
+    %input.new_round_num.form-control.col-md-3{type: 'number', name: 'round_num', min: "1", max: "15", placeholder: "Round", required: true}
   
   %input.btn.btn-default{type: 'submit', value: "Create"}

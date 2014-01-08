@@ -5,7 +5,7 @@ class DebateJudge.Views.ContentionsIndex extends Backbone.View
   events:
     'click .open-composer': 'openForm'
     'click button': 'closeForm'
-    'click #new-contention-submit': 'createContention'
+    'click .new-contention-submit': 'createContention'
 
   initialize: (opts) ->
     @speech = opts.speech
@@ -28,7 +28,7 @@ class DebateJudge.Views.ContentionsIndex extends Backbone.View
 
   createContention: (e) ->
     e.preventDefault()
-    contention = @$("#new-contention").val()
+    contention = @$(".new-contention").val()
     @collection.create speech_type: @speech, contention: contention, round_id: @model.id
     @$('textarea').val('')
 

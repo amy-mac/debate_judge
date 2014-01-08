@@ -1,11 +1,10 @@
 class DebateJudge.Views.Tournament extends Backbone.View
   template: JST['tournaments/tournament']
-  tagName: 'a'
-  className: 'list-group-item'
+  className: 'panel panel-default'
 
   events:
-    "click .list-group-item-heading": "unhideRounds"
-    "click #new_round_num": (e) -> e.preventDefault()
+    "click .panel-heading": 'unhideRounds'
+    "click .new_round_num": (e) -> e.preventDefault()
 
   render: ->
     $(@el).html(@template(tournament: @model, rounds: @collection))
@@ -16,7 +15,7 @@ class DebateJudge.Views.Tournament extends Backbone.View
 
   unhideRounds: (e) ->
     e.preventDefault()
-    @$("#rounds").toggleClass('hidden')
+    @$(".rounds").toggleClass('hidden')
 
   deleteTournament: ->
     @model.destroy()

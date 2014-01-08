@@ -21,7 +21,7 @@
 
 .row
   .col-xs-12.col-md-7
-    #tournaments.list-group
+    #tournaments
 
   .col-xs-12.col-md-4.col-md-offset-1
     %h3 Recent Rounds

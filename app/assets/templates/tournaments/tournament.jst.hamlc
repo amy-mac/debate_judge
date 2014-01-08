@@ -1,9 +1,9 @@
-%span.badge
-  = @rounds.length
-%p.list-group-item-heading
+.panel-heading
   %strong
     = @tournament.get('date')
     |
     = @tournament.get('tournament')
   %small
     = @tournament.get('school')
+  %span.badge
+    = @rounds.length

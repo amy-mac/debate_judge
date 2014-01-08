@@ -1,11 +1,10 @@
 class DebateJudge.Views.RoundsIndex extends Backbone.View
   template: JST['rounds/index']
-  className: 'list-group-text hidden'
-  id: "rounds"
+  className: 'rounds panel-body hidden'
 
   events:
     'click .roundAdd': 'openForm'
-    'submit #new_round': 'addRound'
+    'submit .new_round': 'addRound'
     'click .delete_tourney': 'deleteTournament'
     'click .open-round': 'openRound'
 
@@ -26,8 +25,9 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
 
   addRound: (e) ->
     e.preventDefault()
-    event_type = $(e.currentTarget).parent().find("#new_round_event").val()
-    round_num = $(e.currentTarget).parent().find("#new_round_num").val()
+    event_type = @$('.new_round_event').val()
+    round_num = @$('.new_round_num').val()
+    
     @collection.create {
       tournament_id: @tournament.id
       event: event_type
@@ -50,4 +50,4 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
 
   openForm: (e) ->
     e.preventDefault()
-    @$('#new_round').removeClass('hidden')
+    @$('.new_round').removeClass('hidden')
