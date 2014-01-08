@@ -4,7 +4,7 @@
     .contentions
     %div.contention-composer.hidden
       %div.contention
-        %textarea#new-contention.form-control{ autofocus: 'true' }
-        %button#new-contention-submit.btn.btn-default.btn-sm Add
+        %textarea.new-contention.form-control{ autofocus: 'true' }
+        %button.new-contention-submit.btn.btn-default.btn-sm Add
         %button.btn.btn-default.btn-sm Cancel
   %a.open-composer.text-muted{ href: "#" } Add contention
