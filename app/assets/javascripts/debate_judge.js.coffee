@@ -32,11 +32,11 @@ page '/tournaments', ->
 page '/rounds/:id', (ctx) ->
   @userContentions = new DebateJudge.Collections.Contentions()
   @model = new DebateJudge.Models.Round id: ctx.params.id
-  @userContentions.fetch()
-  @model.fetch().then =>
-    view = new DebateJudge.Views.Round(model: @model, collection: @userContentions)
-    $('#main').empty()
-    $('#round_page').html(view.render().el)
+  @userContentions.fetch().then =>
+    @model.fetch().then =>
+      view = new DebateJudge.Views.Round(model: @model, collection: @userContentions)
+      $('#main').empty()
+      $('#round_page').html(view.render().el)
 
 page '/users/new', ->
   $('#round_page').empty()

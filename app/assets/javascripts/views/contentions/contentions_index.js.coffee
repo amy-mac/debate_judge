@@ -10,7 +10,6 @@ class DebateJudge.Views.ContentionsIndex extends Backbone.View
   initialize: (opts) ->
     @speech = opts.speech
     @listenTo @collection, 'reset', @render
-    @listenTo @collection, 'sync', @render
     @listenTo @collection, 'add', @appendContention
     @listenTo @collection, 'remove', @render
 
