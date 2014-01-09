@@ -9,7 +9,6 @@ class DebateJudge.Views.Round extends Backbone.View
 
   initialize: ->
     @model.on('reset', @render, this)
-    # @collection.on 'sync', @render, this
     @collection = new DebateJudge.Collections.Contentions @collection.where round_id: @model.id
     switch @model.get('event')
       when "Policy"
