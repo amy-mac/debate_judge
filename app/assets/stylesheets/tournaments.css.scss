@@ -31,6 +31,10 @@ img {
   color: #FFF;
 }
 
+.jumbotron p:last-child {
+  margin-top: 20px;
+}
+
 // Navbar
 
 .navbar {
@@ -189,9 +193,14 @@ img {
 
 // Media Queries
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .navbar-nav > li > a {
     padding-top: 15px;
     padding-bottom: 9px;
+  }
+
+  .jumbotron {
+    padding-top: 70px;
+    padding-bottom: 70px;
   }
 }
