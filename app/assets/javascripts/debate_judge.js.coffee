@@ -40,7 +40,8 @@ page '/rounds/:id', (ctx) ->
 
 page '/users/new', ->
   $('#round_page').empty()
-  view = new DebateJudge.Views.UsersNew()
+  @model = new DebateJudge.Models.User()
+  view = new DebateJudge.Views.UsersNew(model: @model)
   $('#main').html(view.render().el)
 
 page '/users/:id', ->
