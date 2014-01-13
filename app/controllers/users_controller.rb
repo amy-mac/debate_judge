@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       sign_in(@user)
       respond_with @user
     else
-      render json: {status: 'error'}, status: 500
+      respond_with User.create(params[:user])
     end
   end
 
