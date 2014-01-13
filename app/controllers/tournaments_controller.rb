@@ -20,7 +20,7 @@ class TournamentsController < ApplicationController
       User.find(current_user.id).tournaments << tournament
       respond_with tournament
     else
-      render json: {status: 'error'}, status: 500
+      render_with Tournament.create(params.slice(:tournament, :school, :date))
     end
   end
 
