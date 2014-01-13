@@ -46,7 +46,10 @@ describe User do
       expect(user).to have(1).errors_on(:password_confirmation)
     end
 
-    it 'is invalid if password doesn\'t match password confirmation'
+    it 'is invalid if password doesn\'t match password confirmation' do
+      user = build(:user, password: 'foobar', password_confirmation: 'barfoo')
+      expect(user).to have(1).errors_on(:password)
+    end
 
     it 'is invalid with a duplicate email address' do
       user = create(:user, email: 'test@test.com')
