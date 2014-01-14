@@ -86,11 +86,17 @@ img {
   border: none;
 }
 
+.panel-heading h4 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .panel-default > .panel-heading {
   background-color: transparent;
 }
 
 .panel-heading .badge {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   float: right;
   background-color: #FFC100;
   color: #000;
@@ -113,6 +119,12 @@ img {
   font-size: 1.5em;
   padding: 0 8px;
   margin-bottom: 10px;
+}
+
+#round-header h3 {
+  margin-top: 0px;
+  margin-bottom: 5px;
+  font-weight: normal;
 }
 
 #set-timer-input input {
@@ -148,6 +160,10 @@ img {
   -webkit-box-shadow: 2px 2px 5px #CCC;
   -moz-box-shadow: 2px 2px 5px #CCC;
   box-shadow: 2px 2px 5px #CCC;
+}
+
+.speech h4 {
+  font-weight: bold;
 }
 
 .speech-contentions {

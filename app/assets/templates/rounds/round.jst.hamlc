@@ -1,9 +1,9 @@
 .row#round-header
   %div.col-md-4
-    %strong= @round.get('event') 
+    %h3= @round.get('event') 
       &mdash; Round
       = @round.get('round_num')
-    %small.text-muted.glyphicon.glyphicon-remove
+      %small.text-muted.glyphicon.glyphicon-remove
   %div#timer.col-md-4.text-center
     %button#toggle-timer.btn.btn-default.btn-xs Start
     %span#runner
