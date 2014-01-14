@@ -3,7 +3,6 @@ class DebateJudge.Views.UsersSignIn extends Backbone.View
 
   events:
     'submit #new_session': 'newSession'
-    # 'click .btn-default': 'clearFields'
 
   render: ->
     $('#myModalLabel').html("Sign In")

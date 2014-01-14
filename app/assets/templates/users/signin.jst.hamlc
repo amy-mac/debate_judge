@@ -8,5 +8,5 @@
     %label{ for: "password" } Password
     %input#new_session_pass.form-control{ type: "password", name: "password", required: true, placeholder: "Password" }
 
-  %button.btn.btn-default{ "data-dismiss" => "modal" } Cancel
+  %button.btn.btn-default{ type: "button", "data-dismiss" => "modal" } Cancel
   %button.btn.btn-primary{ type: "submit" } Sign In
