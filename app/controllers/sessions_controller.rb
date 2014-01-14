@@ -7,9 +7,11 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       sign_in(user)
-      respond_with @user, :location => '/tournaments', :notice => "Login succesful."
+      respond_with user
+    elsif !user
+      respond_with User.find_by_email(params[:email])
     else
-      render json: {status: 'error'}, status: 500
+      respond_with user.authenticate(params[:password])
     end
   end
 

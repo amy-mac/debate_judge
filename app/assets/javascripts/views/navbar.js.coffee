@@ -6,6 +6,7 @@ class DebateJudge.Views.Navbar extends Backbone.View
   events:
     'click #sign_up_link': 'signUpPage'
     'click .navbar-brand': 'indexPage'
+    'click #sign_in_link': 'showSignIn'
     'click #signOut': 'deleteSession'
     'click #editAccount': 'editUser'
     'click #myTournaments': 'tournamentsPage'
@@ -50,3 +51,7 @@ class DebateJudge.Views.Navbar extends Backbone.View
     @collection.updatedRounds()
     @recent = new DebateJudge.Collections.Rounds @collection.last(5)
     @recent.updatedRounds()
+
+  showSignIn: ->
+    view = new DebateJudge.Views.UsersSignIn()
+    $('#myModal .modal-content').append(view.render().el)

@@ -1,0 +1,12 @@
+#error-notice
+%form#new_session{ role: "form" }
+  .form-group
+    %label{ for: "email" } Email
+    %input#new_session_email.form-control{ type: 'email', name: 'email', autofocus: 'true', required: 'true', placeholder: 'Email Address' }
+
+  .form-group
+    %label{ for: "password" } Password
+    %input#new_session_pass.form-control{ type: "password", name: "password", required: true, placeholder: "Password" }
+
+  %button.btn.btn-default{ type: "button", "data-dismiss" => "modal" } Cancel
+  %button.btn.btn-primary{ type: "submit" } Sign In
