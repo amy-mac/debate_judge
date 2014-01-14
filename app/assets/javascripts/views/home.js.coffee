@@ -15,11 +15,8 @@ class DebateJudge.Views.Home extends Backbone.View
     page '/users/new'
 
   tryDemo: (e) ->
-    e.preventDefault()
-    $('#email').val('test@amy-mac.com')
-    $('#password').val('foobarbaz')
-
-  clearFields: (e) ->
-    e.preventDefault()
-    $('#email').val('')
-    $('#password').val('')
+    view = new DebateJudge.Views.UsersSignIn()
+    $('.modal-body').html(view.render().el)
+    $('#new_session_email').val('test@amy-mac.com')
+    $('#new_session_pass').val('foobarbaz')
+    $('#myModal').modal('show')

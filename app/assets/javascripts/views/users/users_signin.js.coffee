@@ -1,9 +1,9 @@
 class DebateJudge.Views.UsersSignIn extends Backbone.View
   template: JST['users/signin']
-  className: 'modal-body'
 
   events:
     'submit #new_session': 'newSession'
+    'click .btn-default': 'clearFields'
 
   render: ->
     $('#myModalLabel').html("Sign In")
@@ -26,3 +26,8 @@ class DebateJudge.Views.UsersSignIn extends Backbone.View
   printErrors: ->
     @$('#error-notice').addClass('alert alert-danger')
     @$('#error-notice').empty().html('Password/Email combination does not exist')
+
+  clearFields: (e) ->
+    e.preventDefault()
+    $('#new_session_email').val('')
+    $('#new_session_pass').val('')
