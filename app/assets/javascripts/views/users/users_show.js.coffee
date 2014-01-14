@@ -17,5 +17,19 @@ class DebateJudge.Views.UsersShow extends Backbone.View
     attributes =
       name: $('#editInfo_name').val()
       email: $('#editInfo_email').val()
-      password: $('#enterPassword').val()
-    @model.editInfo(attributes)
+    
+    @model.save attributes,
+      validate: false
+      wait: true
+      success: ->
+        @$('#error-notice').addClass('alert alert-success')
+        @$('#error-notice').empty().html("Your profile has been updated successfully")
+      error: (model, response) =>
+        @printErrors(@model, response)
+
+  printErrors: (model, errors) ->
+    @$('#error-notice').addClass('alert alert-danger')
+    @$('#error-notice').empty()
+
+    for attribute, error of errors
+      @$('#error-notice').append("<p>#{attribute} #{item}</p>") for item in error

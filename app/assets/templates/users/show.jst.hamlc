@@ -5,6 +5,7 @@
 
 .row
   .col-xs-12.col-md-6
+    #error-notice
     %form#editInfo{ role: "form" }
       .form-group
         %label{ for: "name" } Name
@@ -14,24 +15,20 @@
         %label{ for: "email" } Email
         %input#editInfo_email.form-control{ type: "text", name: "email", value: "#{@user.get('email')}" }
 
-      .form-group
-        %label{ for: "email" } Enter your password
-        %input#enterPassword.form-control{ type: "password", name: "password", required: true }
+      %input.btn.btn-default{ type: "submit", value: "Update" }
 
-      %input.btn.btn-default{ type: "submit", value: "Submit" }
+/ .row
+/   .col-xs-12.col-md-6
+/     %h3 Change Password
+/     %form#changePassword{ role: "form" }
+/       .form-group
+/         %label{ for: "password" } Old Password
+/         %input#old_user_password.form-control{ type: "password", name: "password", required: true}
+/       .form-group
+/         %label{ for: "new-password" } New Password
+/         %input#new_user_password.form-control{ type: "password", name: "new-password", required: true}
+/       .form-group
+/         %label{ for: "confirm-new-password" } Confirm New Password
+/         %input#new_user_password.form-control{ type: "password", name: "confirm-new-password", required: true}
 
-.row
-  .col-xs-12.col-md-6
-    %h3 Change Password
-    %form#changePassword{ role: "form" }
-      .form-group
-        %label{ for: "password" } Old Password
-        %input#old_user_password.form-control{ type: "password", name: "password", required: true}
-      .form-group
-        %label{ for: "new-password" } New Password
-        %input#new_user_password.form-control{ type: "password", name: "new-password", required: true}
-      .form-group
-        %label{ for: "confirm-new-password" } Confirm New Password
-        %input#new_user_password.form-control{ type: "password", name: "confirm-new-password", required: true}
-
-      %input.btn.btn-default{ type: "submit", value: "Submit" }
+/       %input.btn.btn-default{ type: "submit", value: "Submit" }
