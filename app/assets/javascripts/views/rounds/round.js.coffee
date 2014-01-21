@@ -75,7 +75,11 @@ class DebateJudge.Views.Round extends Backbone.View
 
   # Start and Stop Timer
   toggleTimer: (e) ->
-    $('#runner').runner('toggle')
+    @$('#runner').runner('toggle')
+    if @$('#toggle-timer').html() == "Start"
+      @$('#toggle-timer').html("Stop")
+    else
+      @$('#toggle-timer').html("Start")
 
   # Initializes the timer function
   timerFunction: (value) ->
