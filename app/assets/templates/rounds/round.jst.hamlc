@@ -1,10 +1,12 @@
 .row#round-header
-  %div.col-md-4
+  %div.col-md-5
     %h3= @round.get('event') 
       &mdash; Round
       = @round.get('round_num')
-      %small.text-muted.glyphicon.glyphicon-remove
-  %div#timer.col-md-4.text-center
+      - if @round.get('notes')?
+        %small= @round.get('notes')
+      %small.glyphicon.glyphicon-remove
+  %div#timer.col-md-2.text-center
     %button#toggle-timer.btn.btn-default.btn-xs Start
     %span#runner
     %span#set-timer-input.form-inline
