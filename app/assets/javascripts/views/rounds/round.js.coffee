@@ -33,10 +33,12 @@ class DebateJudge.Views.Round extends Backbone.View
           'Crossfire1',
           'Aff2',
           'Neg2',
-          'Crossfile2',
+          'Crossfire2',
           'Aff3',
           'Neg3',
-          'Crossfire3'
+          'Crossfire3',
+          'Aff4',
+          'Neg4'
         ]
       when 'Lincoln Douglas'
         @speeches = [
