@@ -1,5 +1,5 @@
 class Round < ActiveRecord::Base
-  attr_accessible :round_num, :event
+  attr_accessible :round_num, :event, :notes
 
   belongs_to :tournament
   belongs_to :user

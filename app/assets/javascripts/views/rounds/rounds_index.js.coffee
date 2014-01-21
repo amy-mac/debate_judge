@@ -27,11 +27,13 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
     e.preventDefault()
     event_type = @$('.new_round_event').val()
     round_num = @$('.new_round_num').val()
+    round_notes = @$('.new_round_notes').val()
     
     @collection.create {
       tournament_id: @tournament.id
       event: event_type
       round_num: round_num
+      notes: round_notes
     }, {
       wait: true
       success: (model, response) ->
