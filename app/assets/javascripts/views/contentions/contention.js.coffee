@@ -8,6 +8,7 @@ class DebateJudge.Views.Contention extends Backbone.View
     'click .refute': 'refuteContention'
     'click .contention-editor button': 'closeEditor'
     'click .edit-contention-submit': 'editContention'
+    'keypress .edit-contention': 'createEnter'
 
   initialize: ->
     @model.on 'reset', @render, @
@@ -28,10 +29,15 @@ class DebateJudge.Views.Contention extends Backbone.View
     @$('.hide-on-edit').addClass('hidden')
     @$('.contention-editor').removeClass('hidden')
     @$('.contention-editor textarea').val(@model.get('contention'))
+    @$('.edit-contention').focus()
 
   closeEditor: (e) ->
     @$('.hide-on-edit').removeClass('hidden')
     @$('.contention-editor').addClass('hidden')
+
+  createEnter: (e) ->
+    if e.which is 13 and not e.shiftKey
+      @editContention(e)
 
   editContention: (e) ->
     e.preventDefault()

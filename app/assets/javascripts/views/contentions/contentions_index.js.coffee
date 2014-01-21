@@ -6,6 +6,7 @@ class DebateJudge.Views.ContentionsIndex extends Backbone.View
     'click .open-composer': 'openForm'
     'click button': 'closeForm'
     'click .new-contention-submit': 'createContention'
+    'keypress .new-contention': 'createEnter'
 
   initialize: (opts) ->
     @speech = opts.speech
@@ -22,9 +23,14 @@ class DebateJudge.Views.ContentionsIndex extends Backbone.View
   openForm: (e) ->
     e.preventDefault()
     @$('.contention-composer').removeClass('hidden')
+    @$('.new-contention').focus()
 
   closeForm: (e) ->
     @$('.contention-composer').addClass('hidden')
+
+  createEnter: (e) ->
+    if e.which is 13 and not e.shiftKey
+      @createContention(e)
 
   createContention: (e) ->
     e.preventDefault()
