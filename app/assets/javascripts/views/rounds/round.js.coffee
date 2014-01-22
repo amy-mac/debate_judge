@@ -9,6 +9,7 @@ class DebateJudge.Views.Round extends Backbone.View
 
   initialize: ->
     @model.on('reset', @render, this)
+    $(window).resize _.debounce(@changeSpeechWrapper, 200)
     @collection = new DebateJudge.Collections.Contentions @collection.where round_id: @model.id
     switch @model.get('event')
       when "Policy"
@@ -57,6 +58,7 @@ class DebateJudge.Views.Round extends Backbone.View
     $(@el).html(@template(round: @model, speeches: @speeches))
     for speech in @speeches
       @appendSpeech(speech)
+    @changeSpeechWrapper()
     @
 
   appendSpeech: (speech) =>
@@ -107,3 +109,11 @@ class DebateJudge.Views.Round extends Backbone.View
     @$('#set-timer').removeClass('hidden')
     @$('#reset-timer').addClass('hidden')
     $('#runner').css('color', 'black')
+
+  # makes the Round workspace responsive
+  changeSpeechWrapper: (e) ->
+    $winHeight = $(window).height()
+    height = $winHeight - 120
+    areaheight = $winHeight - 230
+    @$('#speech-wrapper').css({'height': height + "px"})
+    @$('.speech-contentions').css({'max-height': areaheight + 'px'})

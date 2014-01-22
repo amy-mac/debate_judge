@@ -139,14 +139,12 @@ h2 .glyphicon {
   padding: 0;
   overflow-x: auto;
   overflow-y: hidden;
-  min-height: 570px;
-  height: 100%;
   margin-right: 0;
+  padding-bottom: 10px;
 }
 
 #speech-area {
   float: left;
-  max-height: 100%;
   margin-right: -999em;
   margin-bottom: 10px;
   padding-left: 10px;
@@ -160,7 +158,6 @@ h2 .glyphicon {
   border-radius: 5px;
   margin: 0 5px;
   padding: 4px;
-  max-height: 100%;
   -webkit-box-shadow: 2px 2px 5px #CCC;
   -moz-box-shadow: 2px 2px 5px #CCC;
   box-shadow: 2px 2px 5px #CCC;
@@ -174,7 +171,6 @@ h2 .glyphicon {
   overflow-y: auto;
   overflow-x:hidden;
   padding:4px 2px 1px;
-  max-height: 500px;
 }
 
 .open-composer {
