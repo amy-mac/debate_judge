@@ -19,6 +19,22 @@ DebateJudge::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+  
+  config.action_mailer.default_url_options = { :host => 'arbitr.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+  
+  config.action_mailer.smtp_settings = {
+    address: "smtp.sendgrid.net",
+    port: 587,
+    domain: "arbitr.herokuapp.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["SENDGRID_USERNAME"],
+    password: ENV["SENDGRID_PASSWORD"]
+  }
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
@@ -47,9 +63,6 @@ DebateJudge::Application.configure do
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
-
-  # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
 
   # Enable threaded mode
   # config.threadsafe!
