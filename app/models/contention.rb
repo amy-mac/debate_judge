@@ -4,6 +4,6 @@ class Contention < ActiveRecord::Base
   belongs_to :round
   belongs_to :user
 
-  validates :speech_type, presence: true
-  validates :contention, presence: true
+  validates :speech_type, :contention, presence: true
+
 end
