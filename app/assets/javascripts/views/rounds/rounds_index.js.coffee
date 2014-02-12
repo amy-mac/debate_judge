@@ -13,8 +13,8 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
     @listenTo @collection, 'sort', @render
 
   render: ->
-    @filterEvents()
-    @$el.html(@template(lincoln: @lincoln, parli: @parli, policy: @policy, public: @public, collection: @collection))
+    # @filterEvents()
+    @$el.html(@template(collection: @collection))
     @
 
   filterEvents: ->
