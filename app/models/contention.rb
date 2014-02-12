@@ -7,6 +7,7 @@ class Contention < ActiveRecord::Base
   validates :speech_type, :contention, presence: true
 
   after_save :update_round
+  after_destroy :update_round
 
   protected
   def update_round
