@@ -1,5 +1,4 @@
 class RoundsController < ApplicationController
-  # skip_before_filter :authorize
   respond_to :json
 
   def index
@@ -19,8 +18,7 @@ class RoundsController < ApplicationController
   end
 
   def create
-    round = Round.new(params[:round])
-    Tournament.find(params[:tournament_id]).rounds << round
+    round = Tournament.find(params[:tournament_id]).rounds.create(params[:round])
 
     if round.errors.empty?
       respond_with round
@@ -31,7 +29,11 @@ class RoundsController < ApplicationController
   end
 
   def update
-    respond_with Round.update(params[:id], params[:round])
+    if params[:updated_at]
+      Round.update(params[:id], params[:updated_at])
+    else
+      respond_with Round.update(params[:id], params[:round])
+    end
   end
 
   def destroy

@@ -6,4 +6,10 @@ class Contention < ActiveRecord::Base
 
   validates :speech_type, :contention, presence: true
 
+  after_save :update_round
+
+  protected
+  def update_round
+    Round.find(self.round_id).update_attributes(updated_at: Time.now)
+  end
 end

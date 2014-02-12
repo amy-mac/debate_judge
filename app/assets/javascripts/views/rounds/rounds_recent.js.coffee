@@ -13,3 +13,4 @@ class DebateJudge.Views.RoundsRecent extends Backbone.View
   filterRounds: ->
     @recent = new DebateJudge.Collections.Rounds @collection.last(5)
     @recent.comparator = 'updated_at'
+    @recent.sort().models.reverse()

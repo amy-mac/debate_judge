@@ -3,6 +3,7 @@ class ContentionsController < ApplicationController
 
   def index
     respond_with User.find(current_user.id).contentions
+    # respond_with User.find(current_user.id).contentions.where(round_id: params[:round_id])
   end
 
   def show
@@ -14,10 +15,10 @@ class ContentionsController < ApplicationController
   end
 
   def create
-    contention = Contention.create(params.slice(:speech_type, :contention))
-    # round_id = params.slice(:round_id)
+    round = Round.find(params[:round_id])
+    contention = round.contentions.create(params.slice(:speech_type, :contention))
+
     if contention.errors.empty?
-      Round.find(params[:round_id]).contentions << contention
       respond_with contention
     else
       render json: {status: 'error'}, status: 500
