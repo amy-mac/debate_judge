@@ -24,10 +24,5 @@
     #tournaments
 
   .col-xs-12.col-md-4.col-md-offset-1
-    %h3 Recent Rounds
-    %ul
-      - if @recent then for round in @recent.models
-        %li
-          %a.round-link{ href: "/rounds/#{round.id}" }="#{round.get('event')}, Round #{round.get('round_num')}"
-      - if not @recent or @recent.length is 0
-        %li.text-muted No recent rounds available.
+    %aside
+      %h3 Recent Rounds

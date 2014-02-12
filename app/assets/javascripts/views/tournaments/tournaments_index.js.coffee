@@ -11,11 +11,11 @@ class DebateJudge.Views.TournamentsIndex extends Backbone.View
     @listenTo @collection, 'sort', @render
     @listenTo @collection, 'remove', @render
     @rounds = opts.rounds
-    @recentRounds()
 
   render: ->
-    $(@el).html(@template(recent: @recent))
+    $(@el).html(@template)
     @collection.each(@appendTournament, @)
+    @recentRounds()
     @
 
   attributes: ->
@@ -41,8 +41,8 @@ class DebateJudge.Views.TournamentsIndex extends Backbone.View
     e.preventDefault()
     $('#new_tourney').toggleClass('hidden')
 
-  # Finds the 5 most recently updated rounds and creates new collection to display
+  # Creates a view for the recent rounds
   recentRounds: ->
-    @rounds.updatedRounds()
-    @recent = new DebateJudge.Collections.Rounds @rounds.last(5)
-    @recent.updatedRounds()
+    view2 = new DebateJudge.Views.RoundsRecent(collection: @rounds)
+    view2.comparator = 'updated_at'
+    @$('aside').append(view2.render().el)

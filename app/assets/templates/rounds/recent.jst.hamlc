@@ -1,0 +1,6 @@
+- if @recent then for round in @recent.models
+  %li
+    %a.round-link{ href: "/rounds/#{round.id}" }="#{round.get('event')}, Round #{round.get('round_num')}"
+    - console.log round.get('updated_at')
+- if not @recent or @recent.length is 0
+  %li.text-muted No recent rounds available.
