@@ -1,5 +1,6 @@
 class DebateJudge.Views.Home extends Backbone.View
   template: JST['home']
+  el: '#main'
 
   events:
     'click .sign_up_link': 'signUpPage'
