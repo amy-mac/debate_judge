@@ -6,7 +6,7 @@
       %button.btn.btn-default.btn-lg.sign_up_link Sign Up
       %button.btn.btn-default.btn-lg.try_demo Try Demo
 
-.container
+.container.intro
   .row
     .col-xs-12.col-md-4
       %h2
@@ -26,3 +26,10 @@
         %span.glyphicon.glyphicon-globe
         Access Anywhere
       %p Easily keep track of the tournaments that you've done and refer back to previous debate rounds.
+
+%footer
+  .container
+    .row
+      .col-xs-12
+        %p Brought to you by
+          %a{href: 'http://amy-mac.com', "data-toggle" => "tooltip", "data-placement" => "right", title: "Jesse and Amy MacKinnon"} Team MegaMacKinnotron
