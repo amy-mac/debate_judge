@@ -2,6 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+       -o-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+     -moz-box-shadow: $shadow;
+          box-shadow: $shadow;
+}
+
+$odowd-gold: #FFC100;
+
 body { 
   height: 100%;
 }
@@ -19,7 +35,7 @@ a {
 }
 
 .page-header {
-  border-bottom: 1px solid #FFC100;
+  border-bottom: 1px solid $odowd-gold;
 }
 
 img {
@@ -68,14 +84,14 @@ h2 .glyphicon {
 .panel {
   margin-bottom: 0px;
   border-bottom: none;
-  border-radius: 0px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+  @include border-radius(0px);
+  @include box-shadow(none);
 }
 
 .panel:first-child {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
+
 }
 
 .panel:last-child {
@@ -101,7 +117,7 @@ h2 .glyphicon {
 .panel-heading .badge {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   float: right;
-  background-color: #FFC100;
+  background-color: $odowd-gold;
   color: #000;
 }
 
@@ -154,12 +170,10 @@ h2 .glyphicon {
   width: 260px;
   float: left;
   border: 1px solid #C9C4C4;
-  border-radius: 5px;
+  @include border-radius(5px);
   margin: 0 5px;
   padding: 4px;
-  -webkit-box-shadow: 2px 2px 5px #CCC;
-  -moz-box-shadow: 2px 2px 5px #CCC;
-  box-shadow: 2px 2px 5px #CCC;
+  @include box-shadow(2px 2px 5px #CCC);
 }
 
 .speech h4 {
@@ -191,8 +205,7 @@ h2 .glyphicon {
   width: 100%;
   min-height: 80px;
   margin-bottom: 4px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+  @include box-shadow(2px 2px 5px #CCC);
 }
 
 .contention .glyphicon, #round-header .glyphicon {

@@ -11,15 +11,13 @@ class DebateJudge.Views.Navbar extends Backbone.View
     'click #editAccount': 'editUser'
     'click #myTournaments': 'tournamentsPage'
 
-  # initialize: ->
-  #   if @collection?
-  #     _.each ['add', 'remove', 'change', 'reset'], (event) =>
-  #       @listenTo @collection, event, =>
-  #         @render()
+  initialize: ->
+    if @collection
+      @listenTo @collection, 'all', @render
 
   render: ->
-    # if @collection?
-    #   @recentRounds()
+    if @collection
+      @recentRounds()
     $(@el).html(@template(navRecent: @recent))
     @
 
@@ -48,9 +46,9 @@ class DebateJudge.Views.Navbar extends Backbone.View
     page "/tournaments"
 
   recentRounds: ->
-    @collection.updatedRounds()
     @recent = new DebateJudge.Collections.Rounds @collection.last(5)
-    @recent.updatedRounds()
+    @recent.comparator = 'updated_at'
+    @recent.sort().models.reverse()
 
   showSignIn: ->
     view = new DebateJudge.Views.UsersSignIn()

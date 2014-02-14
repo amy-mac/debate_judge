@@ -13,11 +13,16 @@ class DebateJudge.Views.TournamentsIndex extends Backbone.View
     @rounds = opts.rounds
 
   render: ->
+    @collection.models.reverse()
+
     @$('#tournament').empty()
     $(@el).html(@template)
+    
     if @collection.length is 0
       @$('#tournaments').html("<p class='alert alert-warning'>There are no tournaments yet. Why don't you add one?</p>")
+    
     @collection.each(@appendTournament, @)
+    
     @recentRounds()
     @
 
