@@ -18,8 +18,11 @@
       /       %a
       /         %strong.text-muted Recent Rounds
       /     %li.divider
+
       %li.dropdown
-        %a.dropdown-toggle{ href: "#", "data-toggle" => "dropdown" } Account
+        %a.dropdown-toggle{ href: "#", "data-toggle" => "dropdown" }
+          %span.glyphicon.glyphicon-user
+          Account
           %b.caret
         %ul.dropdown-menu
           %li
