@@ -24,9 +24,11 @@ class DebateJudge.Views.ContentionsIndex extends Backbone.View
     e.preventDefault()
     @$('.contention-composer').removeClass('hidden')
     @$('.new-contention').focus()
+    @$('.open-composer').addClass('hidden')
 
   closeForm: (e) ->
     @$('.contention-composer').addClass('hidden')
+    @$('.open-composer').removeClass('hidden')
 
   createEnter: (e) ->
     if e.which is 13 and not e.shiftKey
