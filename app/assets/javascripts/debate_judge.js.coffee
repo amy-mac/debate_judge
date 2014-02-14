@@ -9,6 +9,9 @@ window.DebateJudge =
     nav = new DebateJudge.Views.Navbar()
     $('#navbar').html(nav.render().el)
 
+    if not gon.currentUser
+      page '/'
+
 $(document).ready ->
   DebateJudge.initialize()
 
@@ -18,7 +21,7 @@ page '/', ->
   else
     $('#round_page').empty()
     view = new DebateJudge.Views.Home()
-    $('#main').html(view.render().el)
+    .render()
 
 page '/tournaments', ->
   $('#round_page').empty()
