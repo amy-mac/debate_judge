@@ -4,8 +4,11 @@ class DebateJudge.Views.UsersSignIn extends Backbone.View
   events:
     'submit #new_session': 'newSession'
 
-  render: ->
+  initialize: ->
+    $('.modal-dialog').addClass('modal-sm')
     $('#myModalLabel').html("Sign In")
+
+  render: ->
     $(@el).html(@template())
     @
 

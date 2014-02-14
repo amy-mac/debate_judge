@@ -68,6 +68,7 @@ class DebateJudge.Views.Round extends Backbone.View
     @$("#speech-area").append(view.render().$el)
 
   deleteRound: (e) ->
+    e.stopPropagation()
     if confirm "Are you sure you want to delete this round?"
       @model.destroy
         success: (model, response) ->

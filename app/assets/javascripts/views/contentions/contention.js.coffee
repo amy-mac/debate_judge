@@ -3,7 +3,7 @@ class DebateJudge.Views.Contention extends Backbone.View
   className: 'contention'
 
   events:
-    'click .glyphicon-remove': 'deleteContention'
+    'click .glyphicon-remove': 'confirmDelete'
     'click .glyphicon-pencil': 'openEditor'
     'click .refute': 'refuteContention'
     'click .contention-editor button': 'closeEditor'
@@ -20,9 +20,17 @@ class DebateJudge.Views.Contention extends Backbone.View
     @applyMarkdown(@model.get('contention'))
     @
 
-  deleteContention: (e) ->
-    if confirm "Are you sure you want to delete this?"
-      @model.destroy()
+  confirmDelete: (e) ->
+    e.stopPropagation()
+    $('.modal-dialog').addClass('modal-sm')
+    $('.modal-content').html(JST['confirm_delete'])
+    $('#myModal').modal('show')
+    $('.modal-footer .btn-primary').on 'click', =>
+      $('#myModal').modal('hide')
+      @deleteContention()
+
+  deleteContention: ->
+    @model.destroy()
 
   openEditor: (e) ->
     e.preventDefault()
