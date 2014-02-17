@@ -4,7 +4,7 @@
   %ul.list-unstyled
     - for round in @collection.models
       %li
-        %a.open-round{ href: "#", "data-id" => "#{round.id}" }= "#{round.get('event')}, Round #{round.get('round_num')}"
+        %a.open-round{ href: "#", "data-id" => "#{round.id}" }= "Round #{round.get('round_num')}, #{round.get('event')}"
         - if round.get('notes')
           &mdash; 
           = round.get('notes')
