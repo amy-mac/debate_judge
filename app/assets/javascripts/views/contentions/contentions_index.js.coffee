@@ -39,7 +39,12 @@ class DebateJudge.Views.ContentionsIndex extends Backbone.View
     contention = @$(".new-contention").val()
     @collection.create speech_type: @speech, contention: contention, round_id: @model.id
     @$('textarea').val('')
+    @scrollToBottom()
 
   appendContention: (contention) ->
     view = new DebateJudge.Views.Contention(model: contention)
     @$('.contentions').append(view.render().$el)
+
+  scrollToBottom: ->
+    $test = @$('.speech-contentions')
+    $test.scrollTop($test.prop('scrollHeight'))
