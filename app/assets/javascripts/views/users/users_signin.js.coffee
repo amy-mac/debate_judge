@@ -6,7 +6,6 @@ class DebateJudge.Views.UsersSignIn extends Backbone.View
 
   initialize: ->
     $('.modal-dialog').addClass('modal-sm')
-    $('#myModalLabel').html("Sign In")
 
   render: ->
     $(@el).html(@template())

@@ -52,4 +52,4 @@ class DebateJudge.Views.Navbar extends Backbone.View
 
   showSignIn: ->
     view = new DebateJudge.Views.UsersSignIn()
-    $('.modal-body').html(view.render().el)
+    $('.modal-content').html(view.render().el)
