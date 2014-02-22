@@ -17,7 +17,7 @@ class DebateJudge.Views.Home extends Backbone.View
 
   tryDemo: (e) ->
     view = new DebateJudge.Views.UsersSignIn()
-    $('.modal-body').html(view.render().el)
+    $('.modal-content').html(view.render().el)
     $('#new_session_email').val('test@amy-mac.com')
     $('#new_session_pass').val('foobarbaz')
     $('#myModal').modal('show')
