@@ -21,9 +21,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
     respond_with User.find(current_user).update_attributes(params.slice(:name, :email))
   end

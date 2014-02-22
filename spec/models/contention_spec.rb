@@ -3,15 +3,17 @@ require 'spec_helper'
 describe Contention do
   describe 'valid entry of contention' do
     it 'has a valid factory' do
-      expect(create(:contention)).to be_valid
+      round = create(:round)
+      expect(round.contentions.create(:contention)).to be_valid
     end
 
     it 'is assigned to a round' do
       round = create(:round)
-      contention = create(:contention)
-      round.contentions << contention
+      contention = round.contentions.create(:contention)
       expect(contention.round_id).to eq(round.id)
     end
+
+    it 'updates Round updated_at'
 
   end
 

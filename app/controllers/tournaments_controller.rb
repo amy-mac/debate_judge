@@ -14,13 +14,12 @@ class TournamentsController < ApplicationController
   end
 
   def create
-    tournament = Tournament.create(params.slice(:tournament, :school, :date))
+    tournament = User.find(current_user.id).tournaments.create(params.slice(:tournament, :school, :date))
 
     if tournament.errors.empty?
-      User.find(current_user.id).tournaments << tournament
       respond_with tournament
     else
-      render_with Tournament.create(params.slice(:tournament, :school, :date))
+      respond_with Tournament.create(params.slice(:tournament, :school, :date))
     end
   end
 
