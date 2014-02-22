@@ -17,6 +17,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '2.14.0'
   gem 'factory_girl_rails', '~> 4.2.1'
+  gem 'json_spec', '~> 1.1.1'
   gem 'konacha'
   gem 'letter_opener'
   gem 'quiet_assets'
