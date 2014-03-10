@@ -25,7 +25,7 @@ class DebateJudge.Views.Contention extends Backbone.View
     $('.modal-dialog').addClass('modal-sm')
     $('.modal-content').html(JST['confirm_delete'])
     $('#myModal').modal('show')
-    $('.modal-footer .btn-primary').on 'click', =>
+    $('.modal-footer .btn-danger').on 'click', =>
       $('#myModal').modal('hide')
       @deleteContention()
 

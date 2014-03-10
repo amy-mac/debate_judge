@@ -2,15 +2,17 @@ class DebateJudge.Views.Round extends Backbone.View
   template: JST['rounds/round']
 
   events:
-    'click .glyphicon-remove': 'deleteRound'
+    'click .glyphicon-remove': 'confirmDelete'
     'click #toggle-timer': 'toggleTimer'
     'click #set-timer': 'setTimer'
     'click #reset-timer': 'resetTimer'
 
   initialize: ->
-    @model.on('reset', @render, this)
+    @listenTo @model, 'reset', @render
+    @listenTo @model, 'sync', @render
     $(window).resize _.debounce(@changeSpeechWrapper, 200)
     @collection = new DebateJudge.Collections.Contentions @collection.where round_id: @model.id
+    @listenTo @collection, 'remove', @render
     switch @model.get('event')
       when "Policy"
         @speeches = [
@@ -62,19 +64,26 @@ class DebateJudge.Views.Round extends Backbone.View
     @
 
   appendSpeech: (speech) =>
-    contentions = new DebateJudge.Collections.Contentions @collection.filter (contentions) =>
+    contentions = new DebateJudge.Collections.Contentions @collection.filter (contentions) ->
       (contentions.get 'speech_type') == speech
     view = new DebateJudge.Views.ContentionsIndex(collection: contentions, model: @model, speech: speech)
     @$("#speech-area").append(view.render().$el)
 
-  deleteRound: (e) ->
+  confirmDelete: (e) ->
     e.stopPropagation()
-    if confirm "Are you sure you want to delete this round?"
-      @model.destroy
-        success: (model, response) ->
-          page '/tournaments'
-        error: (model, response) ->
-          alert "Something went wrong"
+    $('.modal-dialog').addClass('modal-sm')
+    $('.modal-content').html(JST['confirm_delete'])
+    $('#myModal').modal('show')
+    $('.modal-footer .btn-danger').on 'click', =>
+      $('#myModal').modal('hide')
+      @deleteRound()
+
+  deleteRound: ->
+    @model.destroy
+      success: (model, response) ->
+        page '/tournaments'
+      error: (model, response) ->
+        alert "Something went wrong"
 
   # Start and Stop Timer
   toggleTimer: (e) ->
@@ -95,7 +104,7 @@ class DebateJudge.Views.Round extends Backbone.View
       milliseconds: false
     .on "runnerFinish", (eventObject, info) ->
       $("#runner").css('color', 'red')
-  
+
   # Sets the value for the timer
   setTimer: ->
     newValue = @$("#set-timer-input input").val()

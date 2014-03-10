@@ -236,14 +236,14 @@ DEPENDENCIES
   factory_girl_rails (~> 4.2.1)
   faker (~> 1.1.2)
   gon
-  haml-rails
+  haml-rails (= 0.4)
   haml_coffee_assets
   jquery-rails
   json_spec (~> 1.1.1)
   konacha
   launchy (~> 2.3.0)
   letter_opener
-  pg
+  pg (= 0.17.0)
   pry-rails
   quiet_assets
   rails (= 3.2.17)

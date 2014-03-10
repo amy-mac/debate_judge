@@ -18,7 +18,7 @@
 
 $odowd-gold: #FFC100;
 
-body { 
+body {
   height: 100%;
 }
 
@@ -121,6 +121,10 @@ h2 .glyphicon {
   color: #000;
 }
 
+.modal-footer {
+  padding: 15px 17px 17px;
+}
+
 // Round pages
 
 #round_page {
@@ -217,7 +221,7 @@ h2 .glyphicon {
 }
 
 .contention .glyphicon:empty {
- width: 1.2em; 
+ width: 1.2em;
 }
 
 .refute {

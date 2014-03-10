@@ -5,7 +5,7 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
   events:
     'click .roundAdd': 'openForm'
     'submit .new_round': 'addRound'
-    'click .delete_tourney': 'deleteTournament'
+    'click .delete_tourney': 'confirmDelete'
     'click .open-round': 'openRound'
 
   initialize: (opts) ->
@@ -28,7 +28,7 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
     event_type = @$('.new_round_event').val()
     round_num = @$('.new_round_num').val()
     round_notes = @$('.new_round_notes').val()
-    
+
     @collection.create {
       tournament_id: @tournament.id
       event: event_type
@@ -42,7 +42,16 @@ class DebateJudge.Views.RoundsIndex extends Backbone.View
         alert "That round already exists"
     }
 
-  deleteTournament: (e) ->
+  confirmDelete: (e) ->
+    e.stopPropagation()
+    $('.modal-dialog').addClass('modal-sm')
+    $('.modal-content').html(JST['confirm_delete'])
+    $('#myModal').modal('show')
+    $('.modal-footer .btn-danger').on 'click', =>
+      $('#myModal').modal('hide')
+      @deleteTournament()
+
+  deleteTournament: ->
     @tournament.destroy()
 
   openRound: (e) ->
