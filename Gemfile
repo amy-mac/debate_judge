@@ -1,15 +1,15 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.1'
 
-gem 'rails', '3.2.14'
+gem 'rails', '3.2.17'
 gem 'sidekiq', '~> 2.15.0'
 gem 'sinatra'
 gem 'unicorn', '4.7.0'
-gem 'pg'
+gem 'pg', '0.17.0'
 gem 'backbone-on-rails'
 gem 'gon'
-gem 'haml-rails'
+gem 'haml-rails', '0.4'
 gem 'haml_coffee_assets'
 gem 'bootstrap-sass', '~> 3.1.0'
 
