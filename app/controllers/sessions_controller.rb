@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       sign_in(user)
       respond_with user
     elsif !user
+      # TODO: Fix the possible nil value here
       respond_with User.find_by_email(params[:email])
     else
       respond_with user.authenticate(params[:password])
