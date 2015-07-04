@@ -14,7 +14,7 @@ DebateJudge.Routers.Tournaments = Backbone.Router({
   },
 
   index: function() {
-    var view = new DebateJudge.Views.TournamentsIndex(collection: this.collection);
+    var view = new DebateJudge.Views.TournamentsIndex({collection: this.collection});
     $('#main').html(view.render().el)
   },
 
