@@ -74,7 +74,7 @@ DebateJudge.Views.Round = Backbone.View.extend({
 
   appendSpeech: function(speech) {
     var contentions = this.collection.filter(function(contention) {
-      return contention.get('speech_type') == speech;
+      return (contention.get('speech_type')) == speech;
     });
     contentions = new DebateJudge.Collections.Contentions(contentions);
     var view = new DebateJudge.Views.ContentionsIndex({collection: contentions, model: this.model, speech: speech});
