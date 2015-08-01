@@ -13,7 +13,6 @@ DebateJudge.Views.Contention = Backbone.View.extend({
 
   initialize: function() {
     // TODO: Change to listenTo
-    _.bindAll(this);
     this.model.on('reset', this.render, this);
     this.model.on('sync', this.render, this);
   },
@@ -31,7 +30,7 @@ DebateJudge.Views.Contention = Backbone.View.extend({
     $('.modal-dialog').addClass('modal-sm');
     $('.modal-content').html(JST['confirm_delete']);
     $('#myModal').modal('show');
-    $('.modal-footer .btn-danger').on('click', function() {
+    $('.modal-footer .btn-danger').on('click', function(e) {
       $('#myModal').modal('hide');
       self.deleteContention();
     });
