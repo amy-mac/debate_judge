@@ -13,7 +13,7 @@
 
       .form-group
         %label{ for: "email" } Email
-        %input#editInfo_email.form-control{ type: "text", name: "email", value: "#{@user.get('email')}" }
+        %input#editInfo_email.form-control{ type: "text", name: "email", value: "#{@user.get('email')}", required: true }
 
       %input.btn.btn-default{ type: "submit", value: "Update" }
 

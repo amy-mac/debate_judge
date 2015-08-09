@@ -3,7 +3,6 @@ DebateJudge.Models.User = Backbone.Model.extend({
   paramRoot: 'user',
 
   initialize: function() {
-    console.log("This model has been initialized.");
   },
 
   validate: function(attrs) {
