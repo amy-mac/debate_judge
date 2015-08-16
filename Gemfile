@@ -11,6 +11,7 @@ gem 'backbone-on-rails'
 gem 'gon'
 gem 'haml-rails', '0.4'
 gem 'haml_coffee_assets'
+gem 'jade-rails', '~> 1.9.2.0'
 gem 'bootstrap-sass', '~> 3.1.0'
 
 group :development, :test do
