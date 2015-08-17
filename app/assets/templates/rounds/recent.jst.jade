@@ -1,5 +1,6 @@
-- if @recent then for round in @recent.models
-  %li
-    %a.round-link{ href: "/rounds/#{round.id}" }="Round #{round.get('round_num')}, #{round.get('event')}"
-- if not @recent or @recent.length is 0
-  %li.text-muted No recent rounds available.
+if this.recent
+  each round in this.recent.models
+    li
+      a.round-link(href="/rounds/#{round.id}") Round #{round.get('round_num')}, #{round.get('event')}
+if !this.recent || this.recent.length == 0
+  li.text-muted No recent rounds available.

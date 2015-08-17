@@ -1,9 +1,6 @@
 .panel-heading
-  %h4
-    = @tournament.get('date')
-    |
-    = @tournament.get('tournament')
-    %small
-      = @tournament.get('school')
-    %span.badge
-      = @rounds.length
+  h4 #{this.model.get('date')} | #{this.model.get('tournament')} 
+    small
+      = this.model.get('school')
+    span.badge
+      = this.collection.length

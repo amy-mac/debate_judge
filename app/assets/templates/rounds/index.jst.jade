@@ -1,33 +1,32 @@
--if @collection.length is 0
-  %p.text-muted No rounds added yet
--else
-  %ul.list-unstyled
-    - for round in @collection.models
-      %li
-        %a.open-round{ href: "#", "data-id" => "#{round.id}" }= "Round #{round.get('round_num')}, #{round.get('event')}"
-        - if round.get('notes')
-          &mdash; 
-          = round.get('notes')
+if this.collection.length == 0
+  p.text-muted No rounds added yet
+else
+  ul.list-unstyled
+    each round in this.collection.models
+      li
+        a.open-round(href="#", data-id=round.id) Round #{round.get('round_num')}, #{round.get('event')}
+        if round.get('notes')
+          | &mdash; #{round.get('notes')}
 
 .text-right
-  %ul.list-inline
-    %li
-      %a.roundAdd{ href: "#" } New Round
-    %li
-      %a.delete_tourney{ href: "#" } Delete Tournament
+  ul.list-inline
+    li
+      a.roundAdd(href="#") New Round
+    li
+      a.delete_tourney(href="#") Delete Tournament
 
-%form.new_round.hidden.form-inline.text-right{ role: "form" }
+form.new_round.hidden.form-inline.text-right(role="form")
   .form-group
-    %select.new_round_event.form-control{ name: "event", required: true }
-      %option Lincoln Douglas
-      %option Parli
-      %option Policy
-      %option Public Forum
-  
-  .form-group
-    %input.new_round_num.form-control.col-md-3{type: 'number', name: 'round_num', min: "1", max: "15", placeholder: "Round", required: true}
+    select.new_round_event.form-control(name="event", required=true)
+      option Lincoln Douglas
+      option Parli
+      option Policy
+      option Public Forum
 
   .form-group
-    %input.new_round_notes.form-control{ type: 'text', name: 'notes', placeholder: "Notes, optional"}
-  
-  %input.btn.btn-default{type: 'submit', value: "Create"}
+    input.new_round_num.form-control.col-md-3(type='number', name='round_num', min="1", max="15", placeholder="Round", required=true)
+
+  .form-group
+    input.new_round_notes.form-control(type='text', name='notes', placeholder="Notes, optional")
+
+  input.btn.btn-default(type='submit', value="Create")
