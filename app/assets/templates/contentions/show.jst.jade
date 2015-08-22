@@ -1,14 +1,14 @@
-%div.hide-on-edit
-  -if @contention.get('refuted')
-    %span.label.label-success.pull-right.refute Refuted
-  -else
-    %span.label.label-danger.pull-right.refute Unrefuted
-  %div.markdown
+div.hide-on-edit
+  if this.model.get('refuted')
+    span.label.label-success.pull-right.refute Refuted
+  else
+    span.label.label-danger.pull-right.refute Unrefuted
+  div.markdown
 
-%div.text-right.hide-on-edit
-  %span.glyphicon.glyphicon-pencil.text-muted
-  %span.glyphicon.glyphicon-remove.text-muted
-%div.contention-editor.hidden
-  %textarea.edit-contention.form-control{ autofocus: 'true' }
-  %button.edit-contention-submit.btn.btn-default.btn-sm Save
-  %button.btn.btn-default.btn-sm Cancel
+div.text-right.hide-on-edit
+  span.glyphicon.glyphicon-pencil.text-muted
+  span.glyphicon.glyphicon-remove.text-muted
+div.contention-editor.hidden
+  textarea.edit-contention.form-control(autofocus='true')
+  button.edit-contention-submit.btn.btn-default.btn-sm Save
+  button.btn.btn-default.btn-sm Cancel
