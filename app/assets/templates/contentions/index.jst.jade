@@ -1,0 +1,11 @@
+h4.text-center= this.speech
+div.speech-contention-area
+  div.speech-contentions
+    .contentions
+    div.contention-composer.hidden
+      div.contention
+        form
+          textarea.new-contention.form-control(autofocus='true')
+          button.new-contention-submit.btn.btn-default.btn-sm(type='submit') Add
+          button.btn.btn-default.btn-sm(type='button') Cancel
+  a.open-composer.text-muted(href="#") Add contention

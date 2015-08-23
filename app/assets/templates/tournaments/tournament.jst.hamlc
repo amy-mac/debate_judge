@@ -1,9 +1,0 @@
-.panel-heading
-  %h4
-    = @tournament.get('date')
-    |
-    = @tournament.get('tournament')
-    %small
-      = @tournament.get('school')
-    %span.badge
-      = @rounds.length

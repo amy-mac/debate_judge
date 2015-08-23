@@ -15,6 +15,7 @@
 //= require jquery.runner-min
 //= require markdown
 //= require hamlcoffee
+//= require jade/runtime
 //= require lodash
 //= require page
 //= require backbone

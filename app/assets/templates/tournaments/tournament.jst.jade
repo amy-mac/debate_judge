@@ -1,0 +1,6 @@
+.panel-heading
+  h4 #{this.model.get('date')} | #{this.model.get('tournament')} 
+    small
+      = this.model.get('school')
+    span.badge
+      = this.collection.length

@@ -10,7 +10,7 @@ gem 'pg', '0.17.0'
 gem 'backbone-on-rails'
 gem 'gon'
 gem 'haml-rails', '0.4'
-gem 'haml_coffee_assets'
+gem 'jade-rails', '~> 1.9.2.0'
 gem 'bootstrap-sass', '~> 3.1.0'
 
 group :development, :test do
@@ -35,7 +35,6 @@ end
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
   gem 'execjs'
   gem 'uglifier', '>= 1.0.3'
 end
