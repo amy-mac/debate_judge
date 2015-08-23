@@ -1,26 +1,26 @@
 .row
   .col-xs-12
     .page-header
-      %h1 Sign Up
+      h1 Sign Up
 
 .row
   .col-xs-12.col-md-6
     #error-notice
-    %form#new_user{ role: "form" }
+    form#new_user(role="form")
       .form-group
-        %label{ for: "name" } Name
-        %input#new_user_name.form-control{ type: "text", name: "name", required: true, placeholder: "Name" }
+        label(for="name") Name
+        input#new_user_name.form-control(type="text", name="name", required= true, placeholder="Name")
 
       .form-group
-        %label{ for: "email" } Email
-        %input#new_user_email.form-control{ type: "email", name: "email", required: true, placeholder: "Email address" }
+        label(for="email") Email
+        input#new_user_email.form-control(type="email", name="email", required= true, placeholder="Email address")
 
       .form-group
-        %label{ for: "password" } Password
-        %input#new_user_password.form-control{ type: "password", name: "password", required: true, placeholder: "Password" }
+        label(for="password") Password
+        input#new_user_password.form-control(type="password", name="password", required=true, placeholder="Password")
 
       .form-group
-        %label{ for: "password_confirmation" } Confirm Password
-        %input#new_user_password_confirmation.form-control{ type: "password", name: "password_confirmation", required: true, placeholder: "Confirm password" }
+        label(for="password_confirmation") Confirm Password
+        input#new_user_password_confirmation.form-control(type="password", name= "password_confirmation", required=true, placeholder="Confirm password")
 
-      %input.btn.btn-default{ type: "submit", value: "Submit" }
+      input.btn.btn-default(type="submit", value="Submit")
