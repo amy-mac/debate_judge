@@ -1,48 +1,54 @@
-#= require spec_helper
+//= require spec_helper
+//= require collections/tournaments
 
-describe 'DebateJudge.Collections.Tournaments', ->
-  beforeEach ->
-    # Sinon fake server for backend requests
-    @server = sinon.fakeServer.create()
+describe('DebateJudge.Collections.Tournaments', function() {
+  beforeEach(function() {
+    // Sinon fake server for backend requests
+    this.server = sinon.fakeServer.create();
 
-    # Server automatically responds to XHR requests
-    @server.autoRespond = true
+    // Server automatically responds to XHR requests
+    this.server.autoRespond = true;
 
-    # Create a reference for all internal suites/specs
-    @tournaments = new DebateJudge.Collections.Tournaments()
+    // Create a reference for all internal suites/specs
+    this.tournaments = new DebateJudge.Collections.Tournaments();
+  });
 
-  afterEach ->
-    # Stop fake server
-    @server.restore()
+  afterEach(function() {
+    // Stop fake server
+    this.server.restore();
+  });
 
-  describe 'retrieval', ->
-    it 'has default values', ->
-      expect(@tournaments).to.be.ok
-      expect(@tournaments).to.have.length(0)
+  describe('retrieval', function() {
+    it('has default values', function() {
+      expect(this.tournaments).to.be.ok;
+      expect(this.tournaments).to.have.length(0);
+    });
 
-    it 'should be empty on fetch', (done) ->
-      tournaments = @tournaments
+    it('should be empty on fetch', function(done) {
+      var tournaments = this.tournaments;
 
-      @server.respondWith "GET", "/api/tournaments", [200,
-        "Content-Type": "application/json"
-      , "[]"]
+      this.server.respondWith("GET", "/api/tournaments", [200,
+        {"Content-Type": "application/json"}
+      , "[]"]);
 
-      # Before fetch
-      expect(tournaments).to.be.ok
-      expect(tournaments).to.have.length(0)
+      // Before fetch
+      expect(tournaments).to.be.ok;
+      expect(tournaments).to.have.length(0);
 
-      # After fetch
-      tournaments.once "reset", ->
-        expect(tournaments).to.have.length(0)
-        done()
+      // After fetch
+      tournaments.once("reset", function() {
+        expect(tournaments).to.have.length(0);
+        done();
+      });
 
-      tournaments.fetch reset: true
+      tournaments.fetch({reset: true});
+    });
 
-    it 'has a single tournament', (done) ->
-      tournaments = @tournaments
+    it('has a single tournament', function(done) {
+      var tournaments = this.tournaments;
 
-      @server.respondWith "GET", "/api/tournaments", [200,
-        "Content-Type": "application/json",
+      this.server.respondWith("GET", "/api/tournaments", [200,
+        {"Content-Type": "application/json"},
         JSON.stringify([{
           id: 1,
           tournament: "Test Tourney",
@@ -50,76 +56,88 @@ describe 'DebateJudge.Collections.Tournaments', ->
           date: "3/4/1000",
           user_id: 1
         }])
-      ]
+      ]);
 
-      # After fetch
-      tournaments.once "reset", ->
-        expect(tournaments).to.have.length(1)
+      // After fetch
+      tournaments.once("reset", function() {
+        expect(tournaments).to.have.length(1);
 
-        # Check model attributes
-        tournament = tournaments.at(0)
-        expect(tournament).to.be.ok
-        expect(tournament.get 'tournament').to.contain("Tourney")
-        expect(tournament.get 'school').to.contain("Bishop")
+        // Check model attributes
+        tournament = tournaments.at(0);
+        expect(tournament).to.be.ok;
+        expect(tournament.get('tournament')).to.contain("Tourney");
+        expect(tournament.get('school')).to.contain("Bishop");
 
-        done()
+        done();
+      });
 
-      tournaments.fetch reset: true
+      tournaments.fetch({reset: true});
+    });
+  });
 
 
-  describe 'modification', ->
+  describe('modification', function() {
 
-    beforeEach ->
-      @tournament1 = new DebateJudge.Models.Tournament
-        id: 1
-        tournament: "Test Tourney"
-        school: 'West middle'
-        date: '10/12/2990'
+    beforeEach(function() {
+      this.tournament1 = new DebateJudge.Models.Tournament({
+        id: 1,
+        tournament: "Test Tourney",
+        school: "West middle",
+        date: "10/12/2990",
         user_id: 1
-      @tournament2 = new DebateJudge.Models.Tournament
-        id: 2
-        tournament: "My thing"
-        school: "Bishop"
-        date: '11/13/2009'
+      });
+      this.tournament2 = new DebateJudge.Models.Tournament({
+        id: 2,
+        tournament: "My thing",
+        school: "Bishop",
+        date: "11/13/2009",
         user_id: 1
+      });
 
-      # Simulate the starting point for the collection
-      @tournaments.add(@tournament1)
+      // Simulate the starting point for the collection
+      this.tournaments.add(this.tournament1);
+    });
 
-    it 'can delete a tournament', (done) ->
-      tournaments = @tournaments
+    it('can delete a tournament', function(done) {
+      var tournaments = this.tournaments;
 
-      # After shift
-      tournaments.once 'remove', ->
-        expect(tournaments).to.have.length(0)
-        done()
+      // After shift
+      tournaments.once('remove', function() {
+        expect(tournaments).to.have.length(0);
+        done();
+      });
 
-      # Remove and return first model
-      tournament = tournaments.shift()
-      expect(tournament).to.be.ok
+      // Remove and return first model
+      tournament = tournaments.shift();
+      expect(tournament).to.be.ok;
+    });
 
-    it 'can create a second tournament', (done) ->
-      tournaments = @tournaments
-      tournaments.create(@tournament2)
+    it('can create a second tournament', function(done) {
+      var tournaments = this.tournaments;
+      tournaments.create(this.tournament2);
 
-      # GET returns 2 models
-      @server.respondWith 'GET', '/api/tournaments', [200,
-        'Content-Type': 'application/json',
-        JSON.stringify [@tournament1, @tournament2]
-      ]
+      // GET returns 2 models
+      this.server.respondWith('GET', '/api/tournaments', [200,
+        {'Content-Type': 'application/json'},
+        JSON.stringify([this.tournament1, this.tournament2])
+      ]);
 
-      # After fetch
-      tournaments.once 'reset', ->
-        expect(tournaments).to.have.length(2)
+      // After fetch
+      tournaments.once('reset', function() {
+        expect(tournaments).to.have.length(2);
 
-        # Check model attributes
-        tournament = tournaments.at(1)
-        expect(tournament).to.be.ok
-        expect(tournament.get 'school').to.contain('Bishop')
-        expect(tournament.get 'tournament').to.contain('thing')
+        // Check model attributes
+        tournament = tournaments.at(1);
+        expect(tournament).to.be.ok;
+        expect(tournament.get('school')).to.contain('Bishop');
+        expect(tournament.get('tournament')).to.contain('thing');
 
-        done()
+        done();
+      });
 
-      tournaments.fetch reset: true
+      tournaments.fetch({reset: true});
+    });
+  });
 
-    it 'keeps collection sorted by date'
+//    it('keeps collection sorted by date')
+});
