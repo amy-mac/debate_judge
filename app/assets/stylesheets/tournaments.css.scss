@@ -17,6 +17,8 @@
 }
 
 $odowd-gold: #FFC100;
+$links: #698CAA;
+$dark-gray: #777777; //rgba(119, 119, 119, 1)
 
 body {
   height: 100%;
@@ -27,7 +29,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 a {
-  color: #698CAA;
+  color: $links;
 }
 
 .logo {
@@ -155,11 +157,24 @@ h2 .glyphicon {
 }
 
 #speech-wrapper {
-  padding: 0;
-  overflow-x: auto;
-  overflow-y: hidden;
   margin-right: 0;
-  padding-bottom: 10px;
+  padding: 0 0 10px 0;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    margin-left: 10px;
+    margin-right: 10px;
+    -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.3);
+    border-radius: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(119, 119, 119, 0.5);
+    border-radius: 6px;
+  }
 }
 
 #speech-area {
@@ -186,8 +201,20 @@ h2 .glyphicon {
 
 .speech-contentions {
   overflow-y: auto;
-  overflow-x:hidden;
-  padding:4px 2px 1px;
+  overflow-x: hidden;
+  padding: 4px 2px 1px;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.3);
+    border-radius: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(119, 119, 119, 0.5);
+    border-radius: 6px;
+  }
 }
 
 .open-composer {
