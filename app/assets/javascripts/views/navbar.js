@@ -47,7 +47,7 @@ DebateJudge.Views.Navbar = Backbone.View.extend({
 
   editUser: function(e) {
     e.preventDefault();
-    page("/users/" + gon.currentUser.id);
+    page("/users/" + gon.currentUserID);
   },
 
   tournamentsPage: function(e) {

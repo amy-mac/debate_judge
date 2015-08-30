@@ -9,7 +9,7 @@ window.DebateJudge = {
     var nav = new DebateJudge.Views.Navbar();
     $('#navbar').html(nav.render().el);
 
-    if(!gon.currentUser) {
+    if(!gon.currentUserID) {
       page('/');
     }
   }
@@ -20,7 +20,7 @@ $(document).ready(function() {
 });
 
 page('/', function() {
-  if(gon.currentUser) {
+  if(gon.currentUserID) {
     page('/tournaments');
   } else {
     $('#round_page').empty();
@@ -65,7 +65,7 @@ page('/users/new', function() {
 page('/users/:id', function() {
   var self = this;
   $('#round_page').empty();
-  this.model = new DebateJudge.Models.User({id: gon.currentUser.id});
+  this.model = new DebateJudge.Models.User({id: gon.currentUserID});
   this.model.fetch().then(function() {
     var view = new DebateJudge.Views.UsersShow({model: self.model});
     $('#main').html(view.render().el);

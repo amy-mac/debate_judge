@@ -1,6 +1,6 @@
 class MainController < ApplicationController
 
   def index
-    gon.currentUser = current_user
+    gon.currentUserID = current_user.try(:id)
   end
 end
