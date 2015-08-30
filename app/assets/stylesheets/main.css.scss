@@ -1,15 +1,104 @@
-// Place all the styles related to the main controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'colors';
+
+$main-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$logo-font: "fff_tusjbold";
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+       -o-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+     -moz-box-shadow: $shadow;
+          box-shadow: $shadow;
+}
+
+body {
+  height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: Trebuchet;
+}
+
+a {
+  color: $links;
+}
+
+img {
+  max-width: 100%;
+}
 
 footer {
   position: fixed;
   bottom: 0;
   height: 60px;
-  background-color: white;
   width: 100%;
+  background-color: white;
 }
+
+.logo {
+  font-family: $logo-font;
+}
+
+.page-header {
+  border-bottom: 1px solid $odowd-gold;
+}
+
+.modal-footer {
+  padding: 15px 17px 17px;
+}
+
+// NAVBAR
+
+.navbar {
+  min-height: 0px;
+  height: 45px;
+}
+
+.navbar-brand {
+  font-family: $logo-font;
+  font-size: 32px;
+}
+
+.navbar-nav > li > a {
+  padding-top: 15px;
+  padding-bottom: 9px;
+}
+
+// HOMEPAGE
 
 .intro {
   padding-bottom: 70px;
+}
+
+.jumbotron {
+  margin-top: -1.2em;
+  background: url(/assets/blackboard.jpg) #292929;
+  color: #FFF;
+  p:last-child {
+    margin-top: 20px;
+  }
+}
+
+h2 .glyphicon {
+  font-size: 0.75em;
+}
+
+// MEDIA STYLES
+
+@media screen and (min-width: 768px) {
+  .navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 9px;
+  }
+
+  .jumbotron {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
 }
