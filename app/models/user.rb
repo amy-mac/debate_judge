@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   valid_email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   before_create :create_remember_token
+  after_create :send_welcome_email
 
   validates :name, presence: true
   validates :email, presence: true,
@@ -19,5 +20,9 @@ class User < ActiveRecord::Base
 
   def create_remember_token
     self.remember_token = SecureRandom.urlsafe_base64
+  end
+
+  def send_welcome_email
+    UserNotifier.signup_email(self).deliver
   end
 end
