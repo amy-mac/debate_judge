@@ -6,12 +6,9 @@ window.DebateJudge = {
   initialize: function() {
     page();
 
-    var nav = new DebateJudge.Views.Navbar();
-    $('#navbar').html(nav.render().el);
-
-    if(!gon.currentUserID) {
-      page('/');
-    }
+    //if(!gon.currentUserID) {
+    //  page('/');
+    //}
   }
 };
 
@@ -24,7 +21,7 @@ page('/', function() {
     page('/tournaments');
   } else {
     $('#round_page').empty();
-    var view = new DebateJudge.Views.Home()
+    var view = new DebateJudge.Views.Home();
     view.render();
   }
 });
