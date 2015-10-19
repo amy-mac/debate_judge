@@ -19,7 +19,9 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, on: :create
 
   def create_remember_token
-    self.remember_token = SecureRandom.urlsafe_base64
+    while User.exists?(remember_token: self.remember_token)
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
   end
 
   def send_welcome_email

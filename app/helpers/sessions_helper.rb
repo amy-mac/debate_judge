@@ -1,7 +1,11 @@
 module SessionsHelper
 
-  def sign_in(user)
-    session[:user_id] = user.id
+  def sign_in(user, remember=false)
+    if remember
+      cookies.permanent[:remember_token] = user.remember_token
+    else
+      cookies[:remember_token] = user.remember_token
+    end
     # calls the current_user method below
     current_user = user
   end
@@ -28,7 +32,7 @@ module SessionsHelper
 
   def current_user
     @current_user ||= begin
-      User.find(session[:user_id]) rescue nil
+      User.where(remember_token: cookies[:remember_token]).first rescue nil
     end
   end
 
