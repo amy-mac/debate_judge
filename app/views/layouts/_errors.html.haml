@@ -1,0 +1,9 @@
+.container
+  .row
+    - if flash[:error]
+      #error-notice.alert.alert-danger= flash[:error]
+    - if flash[:notice]
+      #error-notice.alert.alert-success.alert-dismissable{role: "alert"}
+        %button.close{type: "button", data: {dismiss: "alert"}, aria: {label: "close"}}
+          %span{aria: {hidden: "true"}} &times;
+        = flash[:notice]
