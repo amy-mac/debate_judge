@@ -16,15 +16,11 @@ $(document).ready(function() {
   DebateJudge.initialize();
 });
 
-page('/', function() {
-  if(gon.currentUserID) {
-    page('/tournaments');
-  } else {
-    $('#round_page').empty();
-    var view = new DebateJudge.Views.Home();
-    view.render();
-  }
-});
+//page('/', function() {
+  // if(gon.currentUserID) {
+    // page('/tournaments');
+  // } 
+//});
 
 page('/tournaments', function() {
   var self = this;

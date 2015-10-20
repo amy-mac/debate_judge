@@ -1,8 +1,38 @@
 %div#main
-  .container
+  .jumbotron
+    .container.text-center
+      %h1.logo Welcome to Arbitr
+      %p A simple and intuitive way to flow a high school debate round.
+      %p
+        = link_to("Sign Up", new_user_path, class: "btn btn-default btn-lg", role: "button")
+        = link_to("Try Demo", sessions_path(email: "test@amy-mac.com", password: "foobarbaz"), method: :post, class: "btn btn-default btn-lg")
+
+  .container.intro
     .row
-      .col-xs-12
-        %p Loading...
+      .col-xs-12.col-md-4
+        %h2
+          %span.glyphicon.glyphicon-list
+          No More Mess
+        %p Arbitr keeps your debate flows organized with neat columns and contentions that can be edited instead of crossed out.
+
+      .col-xs-12.col-md-4
+        %h2
+          %span.glyphicon.glyphicon-time
+          Saves Time
+        %p No more setting up written templates yourself. Arbitr has ready-made layouts for Lincoln Douglas, Parli, Policy, and Public Forum events.
+
+
+      .col-xs-12.col-md-4
+        %h2
+          %span.glyphicon.glyphicon-globe
+          Access Anywhere
+        %p Easily keep track of the tournaments that you've done and refer back to previous debate rounds.
+
+  %footer
+    .container
+      .row
+        .col-xs-12
+          %p Brought to you by #{link_to("Team MegaMacKinnotron", "http://amy-mac.com", data: {toggle: "tooltip", placement: "right"}, title: "Jesse and Amy MacKinnon")}
 
 %div#round_page
 
