@@ -16,14 +16,14 @@ module SessionsHelper
 
   def signed_in_user
     unless signed_in?
-      session[:return_to] = request.url
-      # redirect_to new_session_path, notice: "Please sign in to see this page"
+      #session[:return_to] = request.url
+      redirect_to login_path, error: "Please sign in to see this page."
     end
   end
 
   def sign_out
     @current_user = nil
-    reset_session
+    cookies.delete(:remember_token)
   end
 
   def current_user=(user)
@@ -31,9 +31,6 @@ module SessionsHelper
   end
 
   def current_user
-    @current_user ||= begin
-      User.where(remember_token: cookies[:remember_token]).first rescue nil
-    end
+    @current_user ||= User.where(remember_token: cookies[:remember_token]).first
   end
-
 end
