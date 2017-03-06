@@ -5,10 +5,10 @@
         small= this.model.get('notes')
       small.glyphicon.glyphicon-remove
   div#timer.col-md-2.text-center
-    button#toggle-timer.btn.btn-default.btn-xs Start
+    button#toggle-timer.btn.btn-default.btn-xs(disabled="disabled") Start
     span#runner
     span#set-timer-input.form-inline
-      input.input-sm.form-control(type="number", placeholder="Min.")
+      input.input-sm.form-control(type="number", placeholder="Min.", min="0")
     button#set-timer.btn.btn-default.btn-xs Set
     button#reset-timer.btn.btn-default.btn-xs.hidden Reset
 

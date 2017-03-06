@@ -41,6 +41,10 @@ footer {
   background-color: white;
 }
 
+button:not(:last-child) {
+  margin-right: 6px;
+}
+
 .logo {
   font-family: $logo-font;
 }
@@ -82,9 +86,6 @@ footer {
   color: #FFF;
   p:last-child {
     margin-top: 20px;
-  }
-  button:not(:last-child) {
-    margin-right: 4px;
   }
 }
 

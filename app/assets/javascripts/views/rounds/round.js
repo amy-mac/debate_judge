@@ -101,16 +101,17 @@ DebateJudge.Views.Round = Backbone.View.extend({
       error: function(model, response) {
         // TODO: better error display here
         alert("Something went wrong");
-      }});
+      }
+    });
   },
 
   // Start and Stop Timer
   toggleTimer: function(e) {
     this.$('#runner').runner('toggle');
-    if(this.$('#toggle-timer').html() == "Start") {
-      this.$('#toggle-timer').html("Stop");
+    if(this.$('#toggle-timer').text() == "Start") {
+      this.$('#toggle-timer').text("Stop");
     } else {
-      this.$('#toggle-timer').html("Start");
+      this.$('#toggle-timer').text("Start");
     }
   },
 
@@ -134,6 +135,7 @@ DebateJudge.Views.Round = Backbone.View.extend({
     this.timerFunction(newValue);
     this.$('#set-timer').addClass('hidden');
     this.$('#reset-timer').removeClass('hidden');
+    this.$('#toggle-timer').prop("disabled", false);
   },
 
   // Opens up the set timer form
@@ -142,6 +144,7 @@ DebateJudge.Views.Round = Backbone.View.extend({
     this.$("#set-timer-input").removeClass('hidden');
     this.$('#set-timer').removeClass('hidden');
     this.$('#reset-timer').addClass('hidden');
+    this.$('#toggle-timer').prop("disabled", true);
     $('#runner').css('color', 'black');
   },
 

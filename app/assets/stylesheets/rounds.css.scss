@@ -19,11 +19,22 @@
     margin-top: 0px;
     margin-bottom: 5px;
     font-weight: normal;
+    small {
+      margin-left: 4px;
+    }
   }
 }
 
 #set-timer-input input {
   width: 60px;
+}
+
+#toggle-timer {
+  margin-right: 4px;
+}
+
+#set-timer, #reset-timer {
+  margin-left: 4px;
 }
 
 #speech-wrapper {
